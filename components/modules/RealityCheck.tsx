@@ -71,7 +71,7 @@ export function ModuleAReality() {
                         <CardTitle className="text-xl text-foreground">The RCI Gate</CardTitle>
                     </CardHeader>
                     <CardContent className="text-sm text-muted-foreground">
-                        <p><strong>{REALITY_STATS.rciSeatsInIndia}</strong> RCI seats in India vs 50,000+ Psychology graduates.</p>
+                        <p><strong>{REALITY_STATS.find(s => s.label.includes("M.Phil Seats"))?.value || "< 30"}</strong> RCI seats in India vs 50,000+ Psychology graduates.</p>
                         <p className="mt-2 text-destructive font-bold">Success Rate: &lt; 2%</p>
                         <p className="text-xs mt-1">NIMHANS is harder to get into than Harvard.</p>
                     </CardContent>
