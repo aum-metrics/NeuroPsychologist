@@ -19,7 +19,7 @@ export function StreamReality() {
             <section className="text-center space-y-4">
                 <div className="flex justify-center">
                     <div className="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2 border border-red-200 dark:border-red-800">
-                        <MapPin className="w-4 h-4" /> Tamil Nadu Edition • Verified Data
+                        <MapPin className="w-4 h-4" /> Tamil Nadu Edition
                     </div>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-heading font-black text-foreground">
