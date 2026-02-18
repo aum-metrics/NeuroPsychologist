@@ -57,7 +57,7 @@ export function ExamExplorer() {
                         <Card key={exam.id} className="hover:border-primary/50 transition-all flex flex-col h-full">
                             <CardHeader className="pb-2">
                                 <div className="flex justify-between items-start">
-                                    <Badge variant={(exam.type === "National" || exam.type === "தேசிய") ? "destructive" : "secondary"}>
+                                    <Badge variant={exam.type === "National" ? "destructive" : "secondary"}>
                                         {type}
                                     </Badge>
                                     <Badge variant="outline" className={
