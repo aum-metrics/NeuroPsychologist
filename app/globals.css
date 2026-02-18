@@ -123,3 +123,8 @@ body {
     radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0) 0, transparent 50%);
   background-attachment: fixed;
 }
+
+/* Ensure Sheet content has a solid background if variables are failing */
+[data-slot="sheet-content"] {
+  background-color: hsl(var(--background)) !important;
+}

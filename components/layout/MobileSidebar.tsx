@@ -22,10 +22,10 @@ export function MobileSidebar() {
                     <span className="sr-only">Toggle Menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-72">
+            <SheetContent side="left" className="p-0 w-72 border-r border-border bg-background">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <SheetDescription className="sr-only">Main navigation sidebar for mobile</SheetDescription>
-                <div className="flex flex-col h-full bg-card">
+                <div className="flex flex-col h-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                     <div className="p-6 border-b border-border cursor-pointer hover:bg-accent/5 transition-colors" onClick={() => {
                         router.push('/');
                         setOpen(false);
