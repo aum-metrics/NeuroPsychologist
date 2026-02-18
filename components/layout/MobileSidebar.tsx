@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -46,7 +47,15 @@ export function MobileSidebar() {
                     <SheetDescription className="sr-only">Main navigation for mobile devices</SheetDescription>
 
                     <div className="p-6 border-b">
-                        <h2 className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">
+                        <h2 className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent flex items-center gap-2">
+                            <div className="relative w-8 h-8">
+                                <Image
+                                    src="/logo.png"
+                                    alt="FutureMap Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                             {t("nav.appName")}
                         </h2>
                         <p className="text-xs text-muted-foreground mt-1">{t("nav.appDesc")}</p>

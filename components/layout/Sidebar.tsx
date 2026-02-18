@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -35,7 +36,14 @@ export function Sidebar() {
         <div className="hidden md:flex w-64 flex-col fixed inset-y-0 z-50 bg-card border-r border-border">
             <div className="p-6 border-b border-border cursor-pointer hover:bg-accent/5 transition-colors" onClick={() => router.push('/')}>
                 <h2 className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent flex items-center gap-2">
-                    <Map className="w-6 h-6 text-primary" />
+                    <div className="relative w-8 h-8">
+                        <Image
+                            src="/logo.png"
+                            alt="FutureMap Logo"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
                     {t("nav.appName")}
                 </h2>
                 <p className="text-xs text-muted-foreground mt-1">{t("nav.appDesc")}</p>
