@@ -34,6 +34,52 @@ export const translations = {
                 find: "Find Scholarships",
                 risk: "Check AI Risk"
             }
+        },
+        reality: {
+            title: "The Reality Check",
+            subtitle: "Data-driven truths about the Tamil Nadu job market.",
+            stat1: "Engineering Graduates",
+            stat1Desc: "Graduate every year in TN",
+            stat2: "Employable",
+            stat2Desc: "Only 20% are job-ready (NASSCOM)",
+            stat3: "Average Salary",
+            stat3Desc: "Starting salary for mass recruiters",
+            impact: "The Impact",
+            impactDesc: "An emotional and financial crisis for families.",
+            cta: "Explore Career Streams"
+        },
+        streams: {
+            title: "Career Streams",
+            subtitle: "Choose a path that aligns with your strengths.",
+            filter: "Filter by Category",
+            viewDetails: "View Details",
+            duration: "Duration",
+            salary: "Avg. Salary"
+        },
+        exams: {
+            title: "Entrance Exams",
+            subtitle: "The gateways to your dream career.",
+            search: "Search exams...",
+            difficulty: "Difficulty",
+            frequency: "Frequency"
+        },
+        scholarships: {
+            title: "Scholarships",
+            subtitle: "Financial aid for Tamil Nadu students.",
+            amount: "Amount",
+            deadline: "Deadline"
+        },
+        genAI: {
+            title: "Future Proofing",
+            subtitle: "AI Resilience Score for your career.",
+            risk: "AI Risk Score",
+            resilience: "Resilience Strategy"
+        },
+        common: {
+            learnMore: "Learn More",
+            close: "Close",
+            lastUpdated: "Last Updated",
+            verified: "Verified"
         }
     },
     ta: {
@@ -71,6 +117,52 @@ export const translations = {
                 find: "உதவித்தொகை தேடு",
                 risk: "AI ஆபத்தை சோதி"
             }
+        },
+        reality: {
+            title: "நிதர்சனம் அறிவோம் (Reality Check)",
+            subtitle: "தமிழ்நாடு வேலைவாய்ப்பு சந்தை பற்றிய தரவு சார்ந்த உண்மைகள்.",
+            stat1: "பொறியியல் பட்டதாரிகள்",
+            stat1Desc: "ஆண்டுதோறும் தமிழ்நாட்டில் படித்து முடிப்பவர்கள்",
+            stat2: "தகுதியானவர்கள்",
+            stat2Desc: "20% மட்டுமே வேலைக்குத் தகுதியானவர்கள் (NASSCOM)",
+            stat3: "சராசரி சம்பளம்",
+            stat3Desc: "தொடக்க நிலை சம்பளம்",
+            impact: "தாக்கம்",
+            impactDesc: "குடும்பங்களுக்கு ஒரு உணர்வுபூர்வமான மற்றும் நிதி நெருக்கடி.",
+            cta: "பாடப்பிரிவுகளை ஆராயுங்கள்"
+        },
+        streams: {
+            title: "பாடப்பிரிவுகள் (Streams)",
+            subtitle: "உங்கள் பலத்திற்கு ஏற்ற பாதையைத் தேர்ந்தெடுக்கவும்.",
+            filter: "வகையின்படி வடிகட்டவும்",
+            viewDetails: "விவரங்களைப் பார்",
+            duration: "கால அளவு",
+            salary: "சராசரி சம்பளம்"
+        },
+        exams: {
+            title: "நுழைவுத் தேர்வுகள்",
+            subtitle: "உங்கள் கனவு வேலைக்கான நுழைவு வாயில்கள்.",
+            search: "தேர்வுகளைத் தேடு...",
+            difficulty: "கடினத்தன்மை",
+            frequency: "அதிர்வெண்"
+        },
+        scholarships: {
+            title: "உதவித்தொகை (Scholarships)",
+            subtitle: "தமிழ்நாடு மாணவர்களுக்கான நிதியுதவி.",
+            amount: "தொகை",
+            deadline: "கடைசி தேதி"
+        },
+        genAI: {
+            title: "எதிர்கால பாதுகாப்பு",
+            subtitle: "உங்கள் தொழிலுக்கான AI தாங்குதிறன் ஸ்கோர்.",
+            risk: "AI ஆபத்து ஸ்கோர்",
+            resilience: "பாதுகாப்பு உத்தி"
+        },
+        common: {
+            learnMore: "மேலும் அறிய",
+            close: "மூடு",
+            lastUpdated: "கடைசியாக புதுப்பிக்கப்பட்டது",
+            verified: "சரிபார்க்கப்பட்டது"
         }
     }
 };

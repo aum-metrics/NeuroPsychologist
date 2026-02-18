@@ -1,224 +1,189 @@
-export interface EntranceExam {
+import { BookOpen, Calendar, MapPin, Globe, CreditCard, Award, GraduationCap, AlertTriangle } from "lucide-react";
+
+export interface Exam {
     id: string;
-    name: string;
-    category: string;
-    summary: string;
-    eligibility: string;
-    testPattern: string;
-    keyDates: string;
-    testCentres: string;
-    clashingExams: string;
-    studyCostsLink: string;
-    archetype: "tech" | "medical" | "management" | "creative" | "commerce";
+    title: string;
+    title_ta?: string;
+    shortName: string;
+    shortName_ta?: string;
+    type: "National" | "State" | "Institute";
+    type_ta?: string;
+    description: string;
+    description_ta?: string;
+    examDate: string;
+    examDate_ta?: string;
+    applicationDeadline: string;
+    applicationDeadline_ta?: string;
+    difficulty: "Medium" | "Hard" | "Very Hard";
+    difficulty_ta?: string;
+    acceptedBy: string;
+    acceptedBy_ta?: string;
+    website: string;
+    fees: string;
+    fees_ta?: string;
+    streams: string[];
 }
 
-export const ENTRANCE_EXAMS: EntranceExam[] = [
-    {
-        id: "tnea",
-        name: "TNEA Admission Process",
-        category: "State Admission",
-        summary: "Counselling based on Class 12 Marks (Cutoff 200). For Anna Univ & Affiliated Colleges.",
-        eligibility: "Class 12 Maths/Phy/Chem. TN Domicile preferred.",
-        testPattern: "No Exam. Ranking based on (Maths/2) + (Phy/4) + (Chem/4).",
-        keyDates: "Reg: May; Rank List: June; Counseling: July-Aug.",
-        testCentres: "Online / TFC Centers",
-        clashingExams: "None",
-        studyCostsLink: "https://www.tneaonline.org/",
-        archetype: "tech"
-    },
-    {
-        id: "viteee",
-        name: "VITEEE (Private Univ)",
-        category: "Private University",
-        summary: "Mandatory for VIT Vellore/Chennai. High competition.",
-        eligibility: "Class 12 PCM/PCB with 60%.",
-        testPattern: "CBT. 2.5 Hrs. Aptitude included.",
-        keyDates: "April.",
-        testCentres: "All Major Cities",
-        clashingExams: "JEE Main (April)",
-        studyCostsLink: "https://vit.ac.in/",
-        archetype: "tech"
-    },
-    {
-        id: "srmjeee",
-        name: "SRMJEEE (Private Univ)",
-        category: "Private University",
-        summary: "For SRM KTR and Vadapalani campuses.",
-        eligibility: "Class 12 PCM/PCB.",
-        testPattern: "Remote Proctored / Center Based.",
-        keyDates: "April - June Phases.",
-        testCentres: "Online/Center",
-        clashingExams: "None",
-        studyCostsLink: "https://www.srmist.edu.in/",
-        archetype: "tech"
-    },
-    {
-        id: "uceed",
-        name: "UCEED (IIT Bombay)",
-        category: "Design",
-        summary: "For B.Des in IITs and IIITDM Kancheepuram.",
-        eligibility: "Class 12 Any Stream.",
-        testPattern: "Part A (CBT) + Part B (Drawing).",
-        keyDates: "Reg: Oct; Exam: Jan.",
-        testCentres: "Chennai, Coimbatore, Madurai",
-        clashingExams: "JEE Main (Jan)",
-        studyCostsLink: "https://www.uceed.iitb.ac.in/",
-        archetype: "creative"
-    },
+export const EXAMS: Exam[] = [
     {
         id: "neet_ug",
-        name: "NEET UG (All India)",
-        category: "Medical",
-        summary: "Mandatory for MBBS/BDS in TN (Govt & Mgmt Quota).",
-        eligibility: "Class 12 PCB. Min 50%. Age > 17.",
-        testPattern: "180 Qs. 720 Marks. Pen & Paper.",
-        keyDates: "Reg: Feb-Mar; Exam: May.",
-        testCentres: "All District Headquarters",
-        clashingExams: "JEE Main (Sometimes dates close)",
-        studyCostsLink: "https://tnmedicalselection.net/",
-        archetype: "medical"
+        title: "National Eligibility cum Entrance Test (UG)",
+        title_ta: "தேசிய தகுதி மற்றும் நுழைவுத் தேர்வு (NEET UG)",
+        shortName: "NEET UG",
+        shortName_ta: "NEET",
+        type: "National",
+        type_ta: "தேசிய",
+        description: "The sole gateway for MBBS/BDS in India. Highly competitive.",
+        description_ta: "இந்தியாவில் MBBS/BDS படிப்பதற்கான ஒரே நுழைவு வாயில். அதிக போட்டி நிறைந்தது.",
+        examDate: "May 5, 2024",
+        examDate_ta: "மே 5, 2024",
+        applicationDeadline: "March 2024",
+        applicationDeadline_ta: "மார்ச் 2024",
+        difficulty: "Hard",
+        difficulty_ta: "கடினம்",
+        acceptedBy: "All Medical Colleges (Govt & Pvt) in TN.",
+        acceptedBy_ta: "தமிழகத்தில் உள்ள அனைத்து மருத்துவக் கல்லூரிகளும் (அரசு & தனியார்).",
+        website: "https://neet.nta.nic.in/",
+        fees: "₹1700",
+        fees_ta: "₹1700",
+        streams: ["medical", "paramedical"]
+    },
+    {
+        id: "tnea",
+        title: "Tamil Nadu Engineering Admissions",
+        title_ta: "தமிழ்நாடு பொறியியல் சேர்க்கை (TNEA)",
+        shortName: "TNEA",
+        shortName_ta: "TNEA",
+        type: "State",
+        type_ta: "மாநிலம்",
+        description: "Not an exam, but a counseling process based on Class 12 marks.",
+        description_ta: "இது தேர்வு அல்ல, 12 ஆம் வகுப்பு மதிப்பெண் அடிப்படையிலான கலந்தாய்வு செயல்முறை.",
+        examDate: "N/A (Counseling)",
+        examDate_ta: "தேர்வு இல்லை (கலந்தாய்வு)",
+        applicationDeadline: "June 2024",
+        applicationDeadline_ta: "ஜூன் 2024",
+        difficulty: "Medium",
+        difficulty_ta: "நடுத்தரம்",
+        acceptedBy: "Anna University & 440+ Affiliated Colleges.",
+        acceptedBy_ta: "அண்ணா பல்கலைக்கழகம் & 440+ இணைப்புக் கல்லூரிகள்.",
+        website: "https://www.tneaonline.org/",
+        fees: "₹500",
+        fees_ta: "₹500",
+        streams: ["engineering"]
     },
     {
         id: "jee_main",
-        name: "JEE Main (Central)",
-        category: "Engineering",
-        summary: "For NIT Trichy, IIIT Kancheepuram & IIT Madras (Adv).",
-        eligibility: "Class 12 PCM. 75% Marks (for NITs).",
-        testPattern: "CBT. 300 Marks. Maths, Phy, Chem.",
-        keyDates: "Jan & April Sessions.",
-        testCentres: "Chennai, Coimbatore, Madurai, Trichy, Salem+.",
-        clashingExams: "Board Practicals",
-        studyCostsLink: "https://jeemain.nta.ac.in/",
-        archetype: "tech"
-    },
-    {
-        id: "tancet",
-        name: "TANCET (State)",
-        category: "Postgrad (MBA/MCA)",
-        summary: "Entry to Anna Univ & Govt Colleges for MBA/MCA/ME.",
-        eligibility: "Any Degree (50%).",
-        testPattern: "2 Hr Offline Test. 100 Marks.",
-        keyDates: "Reg: Jan; Exam: March.",
-        testCentres: "Major TN Cities",
-        clashingExams: "CAT/MAT",
-        studyCostsLink: "https://tancet.annauniv.edu/",
-        archetype: "management"
-    },
-    {
-        id: "tnpsc_grp4",
-        name: "TNPSC Group 4 (State)",
-        category: "Govt Job",
-        summary: "VAO, Junior Assistant, Typist roles.",
-        eligibility: "SSLC (10th Std) Pass.",
-        testPattern: "3 Hr, 300 Marks. Tamil + GK + Aptitude.",
-        keyDates: "Notification usually Annual.",
-        testCentres: "Every Taluk in TN",
-        clashingExams: "Group 2",
-        studyCostsLink: "https://www.tnpsc.gov.in/",
-        archetype: "management"
-    },
-    {
-        id: "clat",
-        name: "CLAT (All India)",
-        category: "Law",
-        summary: "For NLU Trichy (TNNLU) and other NLUs.",
-        eligibility: "Class 12 Pass (45%).",
-        testPattern: "2 Hr Reading Comprehension based.",
-        keyDates: "Exam: December.",
-        testCentres: "Chennai, Trichy, Coimbatore, Madurai",
-        clashingExams: "AILET",
-        studyCostsLink: "https://consortiumofnlus.ac.in/",
-        archetype: "management"
-    },
-    {
-        id: "nift",
-        name: "NIFT Entrance (All India)",
-        category: "Design",
-        summary: "Admission to NIFT Chennai (Taramani).",
-        eligibility: "Class 12 Any Stream.",
-        testPattern: "Creative Ability + General Ability.",
-        keyDates: "Reg: Dec; Exam: Feb.",
-        testCentres: "Chennai, Coimbatore",
-        clashingExams: "NID DAT",
-        studyCostsLink: "https://nift.ac.in/",
-        archetype: "creative"
+        title: "Joint Entrance Examination (Main)",
+        title_ta: "கூட்டு நுழைவுத் தேர்வு (JEE Main)",
+        shortName: "JEE Main",
+        shortName_ta: "JEE Main",
+        type: "National",
+        type_ta: "தேசிய",
+        description: "Gateway for NITs, IIITs. NIT Trichy is the top target for TN students.",
+        description_ta: "NITகள், IIITகளுக்கான நுழைவு வாயில். NIT திருச்சி தமிழக மாணவர்களின் முக்கிய இலக்கு.",
+        examDate: "Jan & April 2024",
+        examDate_ta: "ஜனவரி & ஏப்ரல் 2024",
+        applicationDeadline: "Dec 2023",
+        applicationDeadline_ta: "டிசம்பர் 2023",
+        difficulty: "Hard",
+        difficulty_ta: "கடினம்",
+        acceptedBy: "NIT Trichy, IIIT Kancheepuram, Thanjavur.",
+        acceptedBy_ta: "NIT திருச்சி, IIIT காஞ்சிபுரம், தஞ்சாவூர்.",
+        website: "https://jeemain.nta.ac.in/",
+        fees: "₹1000",
+        fees_ta: "₹1000",
+        streams: ["engineering"]
     },
     {
         id: "cuet_ug",
-        name: "CUET UG (Central)",
-        category: "Central Univ",
-        summary: "For Central Univ of Tamil Nadu (Thiruvarur) & Pondicherry Univ.",
-        eligibility: "Class 12 Pass.",
-        testPattern: "CBT. Domain subjects.",
-        keyDates: "May.",
-        testCentres: "Pan TN",
-        clashingExams: "NEET",
-        studyCostsLink: "https://cuet.samarth.ac.in/",
-        archetype: "management"
-    },
-    {
-        id: "imucet",
-        name: "IMU CET (All India)",
-        category: "Maritime",
-        summary: "Indian Maritime University (Chennai HQ).",
-        eligibility: "Class 12 PCM.",
-        testPattern: "CBT. Physics, Math focus.",
-        keyDates: "May/June.",
-        testCentres: "Chennai, Cochin",
-        clashingExams: "None",
-        studyCostsLink: "https://www.imu.edu.in/",
-        archetype: "tech"
-    },
-    {
-        id: "ca_foundation",
-        name: "CA Foundation",
-        category: "Commerce",
-        summary: "Entry to Chartered Accountancy (ICAI).",
-        eligibility: "Class 12 Pass (Any Stream).",
-        testPattern: "4 Papers: Accounting, Law, Quant, Economics.",
-        keyDates: "June & Dec Sessions.",
-        testCentres: "All Major TN Districts",
-        clashingExams: "B.Com Semesters",
-        studyCostsLink: "https://www.icai.org/",
-        archetype: "commerce"
+        title: "Common University Entrance Test (UG)",
+        title_ta: "பொது பல்கலைக்கழக நுழைவுத் தேர்வு (CUET UG)",
+        shortName: "CUET UG",
+        shortName_ta: "CUET",
+        type: "National",
+        type_ta: "தேசிய",
+        description: "Standardized test for Central Universities. CUTN (Thiruvarur) accepts this.",
+        description_ta: "மத்திய பல்கலைக்கழகங்களுக்கான தரப்படுத்தப்பட்ட தேர்வு. CUTN (திருவாரூர்) இதை ஏற்கிறது.",
+        examDate: "May 15-31, 2024",
+        examDate_ta: "மே 15-31, 2024",
+        applicationDeadline: "March 2024",
+        applicationDeadline_ta: "மார்ச் 2024",
+        difficulty: "Medium",
+        difficulty_ta: "நடுத்தரம்",
+        acceptedBy: "Central Univ of Tamil Nadu, Gandhigram Rural Inst.",
+        acceptedBy_ta: "தமிழ்நாடு மத்திய பல்கலைக்கழகம், காந்திகிராம கிராமப்புற நிறுவனம்.",
+        website: "https://cuet.samarth.ac.in/",
+        fees: "₹750",
+        fees_ta: "₹750",
+        streams: ["arts_science", "commerce_ca"]
     },
     {
         id: "ipmat",
-        name: "IPMAT (IIM Indore)",
-        category: "Management",
-        summary: "Direct 5-Year Integrated MBA at IIMs (Indore, Rohtak).",
-        eligibility: "Class 12 Pass (60%). Age < 20.",
-        testPattern: "Quantitative Ability + Verbal Ability.",
-        keyDates: "Reg: Feb; Exam: May.",
-        testCentres: "Chennai, Coimbatore, Madurai, Trichy",
-        clashingExams: "CUET / JEE Main (May)",
-        studyCostsLink: "https://www.iimidr.ac.in/",
-        archetype: "management"
+        title: "Integrated Programme in Management Aptitude Test",
+        title_ta: "IPM உளச்சார்புத் தேர்வு (IPMAT)",
+        shortName: "IPMAT",
+        shortName_ta: "IPMAT",
+        type: "Institute",
+        type_ta: "நிறுவனம்",
+        description: "Direct entry to IIMs after Class 12. Highly prestigious.",
+        description_ta: "12 ஆம் வகுப்புக்குப் பிறகு IIMகளில் நேரடி சேர்க்கை. மிகவும் மதிப்புமிக்கது.",
+        examDate: "May 2024",
+        examDate_ta: "மே 2024",
+        applicationDeadline: "April 2024",
+        applicationDeadline_ta: "ஏப்ரல் 2024",
+        difficulty: "Very Hard",
+        difficulty_ta: "மிகக் கடினம்",
+        acceptedBy: "IIM Indore, IIM Rohtak.",
+        acceptedBy_ta: "IIM இந்தூர், IIM ரோஹ்தக்.",
+        website: "https://www.iimidr.ac.in/",
+        fees: "₹4130",
+        fees_ta: "₹4130",
+        streams: ["management_bba"]
     },
     {
-        id: "nata",
-        name: "NATA (B.Arch)",
-        category: "Architecture",
-        summary: "Mandatory for B.Arch in Anna Univ & Private Colleges.",
-        eligibility: "Class 12 with Maths/Phy/Chem.",
-        testPattern: "Drawing + Observation + Aesthetics.",
-        keyDates: "Three Attempts: April - July.",
-        testCentres: "Major TN Cities",
-        clashingExams: "None",
-        studyCostsLink: "https://www.nata.in/",
-        archetype: "tech"
+        id: "nift",
+        title: "NIFT Entrance Exam",
+        title_ta: "NIFT நுழைவுத் தேர்வு",
+        shortName: "NIFT",
+        shortName_ta: "NIFT",
+        type: "National",
+        type_ta: "தேசிய",
+        description: "For Design & Fashion Technology. NIFT Chennai (Taramani) is a top center.",
+        description_ta: "வடிவமைப்பு & ஆடை தொழில்நுட்பத்திற்கான தேர்வு. NIFT சென்னை (தரமணி) ஒரு சிறந்த மையம்.",
+        examDate: "Feb 2024",
+        examDate_ta: "பிப்ரவரி 2024",
+        applicationDeadline: "Jan 2024",
+        applicationDeadline_ta: "ஜனவரி 2024",
+        difficulty: "Hard",
+        difficulty_ta: "கடினம்",
+        acceptedBy: "NIFT Chennai & other campuses.",
+        acceptedBy_ta: "NIFT சென்னை & பிற வளாகங்கள்.",
+        website: "https://nift.ac.in/",
+        fees: "₹3000",
+        fees_ta: "₹3000",
+        streams: ["design_media"]
     },
     {
-        id: "tn_boards_merit",
-        name: "Class 12 Boards (TN Merit)",
-        category: "Management / Arts",
-        summary: "The 'Real' Exam. Used for Loyola, MCC, PSG, TNDALU (Law), and TNEA.",
-        eligibility: "H.Sc Marks (State Board / CBSE).",
-        testPattern: "No Separate Test. Pure Merit Cutoff.",
-        keyDates: "Results: May.",
-        testCentres: "Your School",
-        clashingExams: "All Entrance Tests",
-        studyCostsLink: "https://dge.tn.gov.in/",
-        archetype: "management"
+        id: "clat",
+        title: "Common Law Admission Test",
+        title_ta: "பொது சட்ட சேர்க்கை தேர்வு (CLAT)",
+        shortName: "CLAT",
+        shortName_ta: "CLAT",
+        type: "National",
+        type_ta: "தேசிய",
+        description: "Gateway to National Law Universities. TNNLU Trichy accepts this.",
+        description_ta: "தேசிய சட்டப் பல்கலைக்கழகங்களுக்கான நுழைவு வாயில். TNNLU திருச்சி இதை ஏற்கிறது.",
+        examDate: "Dec 2023",
+        examDate_ta: "டிசம்பர் 2023",
+        applicationDeadline: "Nov 2023",
+        applicationDeadline_ta: "நவம்பர் 2023",
+        difficulty: "Hard",
+        difficulty_ta: "கடினம்",
+        acceptedBy: "TNNLU Trichy & other NLUs.",
+        acceptedBy_ta: "TNNLU திருச்சி & பிற NLUகள்.",
+        website: "https://consortiumofnlus.ac.in/",
+        fees: "₹4000",
+        fees_ta: "₹4000",
+        streams: ["law"]
     }
 ];

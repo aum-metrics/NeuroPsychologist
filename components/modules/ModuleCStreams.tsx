@@ -11,13 +11,17 @@ import { StreamDetail } from "@/components/modules/StreamDetail";
 import { Search, ArrowRight, MousePointerClick } from "lucide-react";
 import { icons } from "lucide-react";
 
+import { useLanguage } from "@/lib/context/LanguageContext";
+
 export function ModuleCStreams() {
     const [searchTerm, setSearchTerm] = useState("");
     const [filter, setFilter] = useState("all");
     const [selectedStream, setSelectedStream] = useState<Stream | null>(null);
+    const { language, t } = useLanguage();
 
     const filteredStreams = STREAMS.filter(stream => {
-        const matchesSearch = stream.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const title = language === 'ta' ? stream.title_ta || stream.title : stream.title;
+        const matchesSearch = title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             stream.keySkills.some(k => k.toLowerCase().includes(searchTerm.toLowerCase()));
 
         if (filter === "all") return matchesSearch;
@@ -39,11 +43,12 @@ export function ModuleCStreams() {
             <section className="text-center space-y-4">
                 <Badge variant="outline" className="text-primary border-primary/30">Module C: The Tamil Nadu Fork</Badge>
                 <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
-                    Discover Your Path.
+                    {language === 'ta' ? "உங்கள் பாதையைக் கண்டறியவும்" : "Discover Your Path."}
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                    Explore 13 major career streams available to students in Tamil Nadu.
-                    Validated with 2036 Future Outlooks.
+                    {language === 'ta'
+                        ? "தமிழ்நாட்டு மாணவர்களுக்கான 13 முக்கிய தொழில் வழிகளை ஆராயுங்கள். 2036 எதிர்காலப் பார்வையுடன் சரிபார்க்கப்பட்டது."
+                        : "Explore 13 major career streams available to students in Tamil Nadu. Validated with 2036 Future Outlooks."}
                 </p>
 
                 {/* Search & Filter */}
@@ -51,7 +56,7 @@ export function ModuleCStreams() {
                     <div className="relative flex-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
-                            placeholder="Search 'Biology', 'Maths', 'Design'..."
+                            placeholder={t("exams.search")}
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="pl-9 h-12 bg-muted/50"
@@ -62,53 +67,59 @@ export function ModuleCStreams() {
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                     >
-                        <option value="all">All Streams</option>
-                        <option value="ai_proof">Result: High AI Resilience</option>
-                        <option value="high_salary">Result: High Salary</option>
+                        <option value="all">{t("streams.filter")}</option>
+                        <option value="ai_proof">{language === 'ta' ? "AI பாதுகாப்பு" : "High AI Resilience"}</option>
+                        <option value="high_salary">{language === 'ta' ? "அதிக சம்பளம்" : "High Salary"}</option>
                     </select>
                 </div>
             </section>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredStreams.map((stream, idx) => (
-                    <motion.div
-                        key={stream.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="h-full"
-                    >
-                        <Card
-                            className="h-full hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer group flex flex-col"
-                            onClick={() => setSelectedStream(stream)}
+                {filteredStreams.map((stream, idx) => {
+                    const title = language === 'ta' ? stream.title_ta || stream.title : stream.title;
+                    const overview = language === 'ta' ? stream.overview_ta || stream.overview : stream.overview;
+                    const skills = language === 'ta' ? stream.keySkills_ta || stream.keySkills : stream.keySkills;
+
+                    return (
+                        <motion.div
+                            key={stream.id}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: idx * 0.05 }}
+                            className="h-full"
                         >
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-lg font-bold">{stream.title}</CardTitle>
-                                <div className="p-2 bg-primary/10 rounded-full text-primary group-hover:scale-110 transition-transform">
-                                    <LucideIcon name={stream.icon} className="w-5 h-5" />
-                                </div>
-                            </CardHeader>
-                            <CardContent className="flex-1">
-                                <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
-                                    {stream.overview}
-                                </p>
-                                <div className="flex flex-wrap gap-1">
-                                    {stream.keySkills.slice(0, 2).map(skill => (
-                                        <Badge key={skill} variant="secondary" className="text-[10px] px-1.5 h-5">
-                                            {skill}
-                                        </Badge>
-                                    ))}
-                                    {stream.keySkills.length > 2 && (
-                                        <Badge variant="secondary" className="text-[10px] px-1.5 h-5">+{stream.keySkills.length - 2}</Badge>
-                                    )}
-                                </div>
-                            </CardContent>
-                            <CardFooter className="pt-0 text-xs text-primary font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                View Details <ArrowRight className="w-3 h-3 ml-1" />
-                            </CardFooter>
-                        </Card>
-                    </motion.div>
-                ))}
+                            <Card
+                                className="h-full hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer group flex flex-col"
+                                onClick={() => setSelectedStream(stream)}
+                            >
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-lg font-bold">{title}</CardTitle>
+                                    <div className="p-2 bg-primary/10 rounded-full text-primary group-hover:scale-110 transition-transform">
+                                        <LucideIcon name={stream.icon} className="w-5 h-5" />
+                                    </div>
+                                </CardHeader>
+                                <CardContent className="flex-1">
+                                    <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                                        {overview}
+                                    </p>
+                                    <div className="flex flex-wrap gap-1">
+                                        {skills.slice(0, 2).map(skill => (
+                                            <Badge key={skill} variant="secondary" className="text-[10px] px-1.5 h-5">
+                                                {skill}
+                                            </Badge>
+                                        ))}
+                                        {skills.length > 2 && (
+                                            <Badge variant="secondary" className="text-[10px] px-1.5 h-5">+{skills.length - 2}</Badge>
+                                        )}
+                                    </div>
+                                </CardContent>
+                                <CardFooter className="pt-0 text-xs text-primary font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {t("common.learnMore")} <ArrowRight className="w-3 h-3 ml-1" />
+                                </CardFooter>
+                            </Card>
+                        </motion.div>
+                    );
+                })}
             </div>
 
             {filteredStreams.length === 0 && (
