@@ -8,11 +8,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "NeuroPath India | Career Navigation System",
-  description: "A long-term career navigation system for aspiring Neuropsychologists in India.",
+  title: "FutureMap Tamil Nadu | Career Navigation System",
+  description: "The Definitive Career Navigation System for Tamil Nadu Students (Class 8-12).",
 };
 
 import { Sidebar } from "@/components/layout/Sidebar";
+
+import { GlobalDisclaimer } from "@/components/layout/GlobalDisclaimer";
 
 export default function RootLayout({
   children,
@@ -27,6 +29,30 @@ export default function RootLayout({
         "min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/30"
       )}>
         <Providers>
+          {/* AI/SEO: Structured Data for LLMs */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "FutureMap Tamil Nadu",
+                "url": "https://futuremap.tn",
+                "description": "The Definitive Career Navigation System for Tamil Nadu Students.",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://futuremap.tn/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                },
+                "audience": {
+                  "@type": "EducationalAudience",
+                  "educationalRole": "student",
+                  "audienceType": "High School Students in Tamil Nadu"
+                }
+              })
+            }}
+          />
+          <GlobalDisclaimer />
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="flex-1 md:ml-64 relative flex flex-col">

@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, HeartHandshake, BrainCircuit, ShieldCheck, Brain, Check } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Bot, Brain, AlertTriangle, ShieldCheck } from "lucide-react";
 
 export function ModuleHGenAI() {
     return (
@@ -13,83 +12,86 @@ export function ModuleHGenAI() {
             <section className="text-center space-y-4">
                 <Badge variant="outline" className="text-purple-600 dark:text-purple-400 border-purple-500/30">Module H: Future Proofing</Badge>
                 <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
-                    Will AI Replace You?
+                    Will AI Eat Your Job?
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                    By the time you finish your M.Phil (2032?), ChatGPT 10 will exist.
-                    If your only skill is "Administering IQ Tests", you are obsolete.
+                    The rules of the game in 2030. What survives in Chennai, Coimbatore, and Bangalore.
                 </p>
             </section>
 
-            {/* AI Impact Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                {/* What AI Takes */}
-                <Card className="bg-destructive/5 border-destructive/20">
+                {/* DANGER ZONE */}
+                <Card className="bg-destructive/5 border-destructive/20 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-5">
+                        <Bot className="w-32 h-32" />
+                    </div>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-destructive">
-                            <Bot className="w-5 h-5" />
-                            What AI Will Take (The Grunt Work)
+                        <CardTitle className="text-destructive flex items-center gap-2">
+                            <AlertTriangle className="w-5 h-5" />
+                            The "Red Zone" (High Risk)
                         </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3">
-                        <div className="flex items-start gap-3">
-                            <Badge variant="destructive" className="mt-0.5 shrink-0">Gone</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Basic Report Writing</p>
-                                <p className="text-sm text-muted-foreground">Summarizing patient history and test scores. AI does this in seconds.</p>
+                    <CardContent className="space-y-4">
+                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                            <div className="font-bold text-foreground">Generic Coding ("Service Based")</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Writing boilerplate Java/Python code for mass recruiters. AI Agents (Devin, Cursor) do this faster and cheaper.
                             </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <Badge variant="destructive" className="mt-0.5 shrink-0">Gone</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Standardized Test Administration</p>
-                                <p className="text-sm text-muted-foreground">Digital testing platforms will replace manual scoring.</p>
+                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                            <div className="font-bold text-foreground">Basic Content & Support</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
                             </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <Badge variant="destructive" className="mt-0.5 shrink-0">Gone</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Literature Review</p>
-                                <p className="text-sm text-muted-foreground">AI summarizes 100 research papers in seconds.</p>
+                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                            <div className="font-bold text-foreground">Routine Accounting</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Tally entry and basic audits. AI automates compliant tax filing instantly.
                             </div>
                         </div>
                     </CardContent>
                 </Card>
 
-                {/* What Humans Keep */}
-                <Card className="bg-emerald-500/5 border-emerald-500/20">
+                {/* SAFE ZONE */}
+                <Card className="bg-emerald-500/5 border-emerald-500/20 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-5">
+                        <Brain className="w-32 h-32" />
+                    </div>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
-                            <Brain className="w-5 h-5" />
-                            What Humans Keep (The Value)
+                        <CardTitle className="text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+                            <ShieldCheck className="w-5 h-5" />
+                            The "Green Zone" (Human Moat)
                         </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3">
-                        <div className="flex items-start gap-3">
-                            <Badge className="bg-emerald-500 hover:bg-emerald-600 mt-0.5 shrink-0">Safe</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Complex Differential Diagnosis</p>
-                                <p className="text-sm text-muted-foreground">Distinguishing between Depression vs Early Dementia vs Stroke needs intuition.</p>
+                    <CardContent className="space-y-4">
+                        <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
+                            <div className="font-bold text-foreground">"Physical" Engineering</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Civil site supervision, Mechanical R&D, Robotics hardware. AI can't build a bridge or fix a machine physically.
                             </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <Badge className="bg-emerald-500 hover:bg-emerald-600 mt-0.5 shrink-0">Safe</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Therapeutic Alliance</p>
-                                <p className="text-sm text-muted-foreground">People want to cry to a Human, not a Chatbot.</p>
+                        <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
+                            <div className="font-bold text-foreground">Healthcare & Empathy</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Nursing, Physiotherapy, Doctor-Patient trust. People need human touch in crisis.
                             </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                            <Badge className="bg-emerald-500 hover:bg-emerald-600 mt-0.5 shrink-0">Safe</Badge>
-                            <div>
-                                <p className="font-bold text-foreground">Complex Rehab</p>
-                                <p className="text-sm text-muted-foreground">Designing therapy that adapts to a patient's mood in real-time.</p>
+                        <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
+                            <div className="font-bold text-foreground">Creative Strategy</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Brand building, Film direction, High-level Architecture. AI makes assets, Humans tell stories.
                             </div>
                         </div>
                     </CardContent>
                 </Card>
+            </div>
 
+            <div className="bg-primary/5 p-6 rounded-xl border border-primary/20 text-center">
+                <h3 className="text-lg font-bold text-primary mb-2">The 2030 Rule</h3>
+                <p className="text-sm text-muted-foreground">
+                    "Don't just be a 'user' of tools. Be the one who understands the <strong>Domain</strong>. An engineer who knows <em>Agricultural Soil Science</em> is safer than a generic C++ coder."
+                </p>
             </div>
         </div>
     );

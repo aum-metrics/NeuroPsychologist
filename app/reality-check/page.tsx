@@ -1,9 +1,9 @@
-import { ModuleAReality } from "@/components/modules/RealityCheck";
+import { StreamReality } from "@/components/modules/StreamReality";
 
 export default function RealityCheckPage() {
     return (
-        <div className="min-h-screen py-10 w-full">
-            <ModuleAReality />
+        <div className="min-h-screen">
+            <StreamReality />
         </div>
     );
 }

@@ -26,8 +26,8 @@ export function ModuleIAlternatives() {
                     Changing Direction is Not Failure.
                 </h1>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                    It is information. If the clinical path feels too long, too risky, or too expensive,
-                    you have 7 other valid paths.
+                    It is information. If Engineering (TNEA) or Medicine (NEET) feels too long or risky,
+                    TN offers 7 other valid paths—from Banking to TNPSC Group 1.
                 </p>
             </section>
 

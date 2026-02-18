@@ -1,60 +1,78 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, AlertTriangle } from "lucide-react";
+import { ArrowRight, Map, AlertTriangle, BookOpen, Search, Target, Calculator } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { ArchetypeSelector } from "@/components/modules/ArchetypeSelector";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4 space-y-8">
+    <div className="flex flex-col items-center justify-center min-h-[90vh] text-center px-4 space-y-8">
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="w-20 h-20 bg-indigo-500/10 rounded-full flex items-center justify-center mb-4 ring-1 ring-indigo-500/50"
+        className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 ring-1 ring-primary/50"
       >
-        <Brain className="w-10 h-10 text-indigo-400" />
+        <Map className="w-12 h-12 text-primary" />
       </motion.div>
 
-      <div className="space-y-4 max-w-2xl">
+      <div className="space-y-4 max-w-3xl">
         <h1 className="text-5xl md:text-7xl font-heading font-black tracking-tight text-foreground">
-          NeuroPath <span className="text-primary">India</span>
+          FutureMap <span className="text-primary">Tamil Nadu</span>
         </h1>
-        <p className="text-xl text-muted-foreground">
-          Not Career Advice. A Life Navigation System for the Chennai Student.
+        <p className="text-xl md:text-2xl text-muted-foreground">
+          The Definitive Career Navigation System for Tamil Nadu Students.
         </p>
       </div>
 
-      <div className="bg-muted/50 border border-border p-6 rounded-2xl max-w-xl text-sm text-muted-foreground leading-relaxed text-left">
-        <p className="mb-4">
-          <AlertTriangle className="inline w-4 h-4 text-orange-500 mr-2" />
-          <strong className="text-foreground">Warning:</strong> This system is brutally honest. It will tell you about:
-        </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>The <span className="text-foreground">10-15 year timeline</span> you are signing up for.</li>
-          <li>Why <span className="text-foreground">95% of Psychology graduates</span> don't become Clinical Neuropsychologists.</li>
-          <li>The <span className="text-foreground">RCI Licensing bottleneck</span> that coaching centers hide.</li>
-          <li>The <span className="text-foreground">Cost vs Reality</span> in Chennai.</li>
-        </ul>
+      {/* HERO: Archetype Selector (Gamified) */}
+      <div className="w-full max-w-6xl px-4 z-10">
+        <ArchetypeSelector />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 pt-8">
-        <Button
-          size="lg"
-          className="rounded-full px-8 text-lg h-14"
-          onClick={() => router.push('/reality-check')}
-        >
-          Start The Simulation <ArrowRight className="ml-2 w-5 h-5" />
-        </Button>
+      {/* SIDE QUESTS: Tools */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl px-4 mt-12">
+        {/* Diagnostics */}
+        <div className="bg-card/50 backdrop-blur border border-border p-6 rounded-xl text-left hover:border-primary/50 transition-colors relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <Target className="w-24 h-24" />
+          </div>
+          <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
+            <Target className="w-5 h-5 text-red-600" />
+            Side Quest: Diagnostics
+          </h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Not sure which character to pick? Take the 2-minute DNA test.
+          </p>
+          <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/modules/grade8')}>
+            Start Validated Test
+          </Button>
+        </div>
+
+        {/* ROI Calculator */}
+        <div className="bg-card/50 backdrop-blur border border-border p-6 rounded-xl text-left hover:border-primary/50 transition-colors relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <Calculator className="w-24 h-24" />
+          </div>
+          <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
+            <Calculator className="w-5 h-5 text-green-600" />
+            Side Quest: ROI Check
+          </h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Calculate family budget vs. college fees. Don't go in blind.
+          </p>
+          <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/tools/roi')}>
+            Open Calculator
+          </Button>
+        </div>
       </div>
 
-      <p className="text-xs text-muted-foreground mt-12">
-        Optimized for Class 8 - 12 Students | Chennai Edition
-      </p>
+
 
     </div>
   );
