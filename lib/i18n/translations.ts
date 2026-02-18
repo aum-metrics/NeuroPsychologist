@@ -11,154 +11,97 @@ export const translations = {
             alternatives: "Career Pivots",
             author: "About Creator",
             appName: "FutureMap TN",
-            appDesc: "Tamil Nadu Edition",
-            landing: {
-                title: "FutureMap",
-                titleSuffix: "Tamil Nadu",
-                subtitle: "Stop Guessing. Start Planning. The Career Map for Tamil Nadu.",
-                cta_archetype: "Find Your Archetype",
-                cta_archetype_desc: "Not sure which character to pick? Take the 2-minute personality test.",
-                cta_archetype_btn: "Start Validated Test",
-                cta_roi: "Plan Your ROI",
-                cta_roi_desc: "See the real cost of college. Plan your ROI.",
-                cta_roi_btn: "Open Calculator"
-            },
-            archetype: {
-                step1: "Step 1: Choose Your Character",
-                title: "Who do you want to be?",
-                subtitle: "Don't choose a degree. Choose a future. Pick your archetype to see the roadmap.",
-                roadmap: "Your Strategic Roadmap",
-                active: "Quest Active",
-                paths: "Your Paths",
-                boss: "Boss Battles (Exams)",
-                powerups: "Power-ups (Scholarships)",
-                noExams: "No specific entrance exams for this path.",
-                claim: "Claim",
-                more: "more scholarships available"
-            },
-            streamDetail: {
-                lastUpdated: "Last Updated in NOV 2025",
-                tabs: {
-                    overview: "Overview",
-                    reality: "Reality Check",
-                    fees: "Fees & ROI",
-                    future: "2036 Future"
-                },
-                demand: "Industry Demand",
-                dna: "Required DNA (Skills)",
-                path: "Academic Path",
-                brutal: "The Brutal Truth (Downsides)",
-                facts: "TN Market Facts (Validated)",
-                govtCost: "Govt Seat Cost",
-                privCost: "Private Mgmt Cost",
-                perYear: "Per Year",
-                salary: "Salary Reality (Freshers)",
-                salaryNote: "Based on 2024 hiring trends in Chennai/Bangalore.",
-                vantage: "2036 Vantage Point",
-                outlook: "What will this job look like in 10 years?",
-                resilience: "AI Resilience Score",
-                safe: "Safe from AI Disruption",
-                assisted: "Will be AI-Assisted",
-                risk: "High Risk of Automation"
-            },
-            moduleB: {
-                title: "Module B: The School Years (Gr 8-10)",
-                heading: "Ignore the Noise.",
-                subheading: "At this age, coaching centers will sell you 'Foundation Courses'.",
-                subheadingHighlight: "Don't buy them.",
-                backpack: "The Mandatory Backpack",
-                backpackDesc: "Select items you are actively building. Reach 100%.",
-                readiness: "Readiness",
-                distractions: "Ignore These (Distractions)",
-                distractionsList: [
-                    "Expensive 'Psychology Summer Camps' (Scams)",
-                    "Random 'Olympiads' that nobody recognizes",
-                    "Obsessing over 'Clinical Disorders' (Too early)"
-                ],
-                doThese: "Do These Instead (Chennai)",
-                doTheseList: [
-                    "Visit the Birla Planetarium (Science interest)",
-                    "Read 'The Man Who Mistook His Wife for a Hat' (Oliver Sacks)",
-                    "Volunteer at an NGO like The Banyan (if age permits)"
-                ],
-                enterGate: "Enter Decision Gate",
-                completeAll: "Complete All Items"
-            },
-            moduleD: {
-                title: "Module D: Undergraduate Choices (Chennai)",
-                heading: "The College Hunt.",
-                subheading: "You are now ~17 years old. You need a Bachelor's degree. In Chennai, the college 'brand' matters for your Master's application later.",
-                probability: {
-                    strong: "Strong Chance",
-                    low: "Very Low",
-                    difficult: "Difficult",
-                    possible: "Possible"
-                },
-                keyCourses: "Key Courses",
-                fees: "Fees/Yr",
-                apply: "Apply Here",
-                warningTitle: "Warning: Marks vs Reality",
-                warningDesc: "Admission to colleges like Loyola or MCC is incredibly competitive. If you don't have 95%+ in Grade 12 (CBSE/State), you need a backup plan."
-            },
-            moduleH: {
-                title: "Module H: Future Proofing",
-                heading: "Will AI Eat Your Job?",
-                subheading: "The rules of the game in 2030. What survives in Chennai, Coimbatore, and Bangalore.",
-                redZone: {
-                    title: "The \"Red Zone\" (High Risk)",
-                    coder: {
-                        title: "The \"Syntactic\" Coder",
-                        desc: "Junior devs who only know syntax but not system design. AI Agents (Devin, Cursor) write boilerplate faster.",
-                        pivot: "Pivot: Learn System Architecture & AI Integration."
-                    },
-                    support: {
-                        title: "Basic Content & Support",
-                        desc: "L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore."
-                    },
-                    accounting: {
-                        title: "Routine Accounting",
-                        desc: "Tally entry and basic audits. AI automates compliant tax filing instantly."
-                    }
-                },
-                greenZone: {
-                    title: "The \"Green Zone\" (Human Moat)",
-                    physical: {
-                        title: "\"Physical\" Engineering",
-                        desc: "Civil site supervision, Mechanical R&D, Robotics hardware. AI can't build a bridge or fix a machine physically."
-                    },
-                    healthcare: {
-                        title: "Healthcare & Empathy",
-                        desc: "Nursing, Physiotherapy, Doctor-Patient trust. People need human touch in crisis."
-                    },
-                    creative: {
-                        title: "Creative Strategy",
-                        desc: "Brand building, Film direction, High-level Architecture. AI makes assets, Humans tell stories."
-                    }
-                },
-                rule2030: {
-                    title: "The 2030 Rule",
-                    desc: "\"Don't just be a 'user' of tools. Be the one who understands the Domain. An engineer who knows Agricultural Soil Science is safer than a generic C++ coder. Goal: AI Literacy, not just chatting with bots.\""
-                }
-            },
-            moduleI: {
-                title: "Module I: The Pivot Map",
-                heading: "Changing Direction is Not Failure.",
-                subheading: "It is information. If Engineering (TNEA) or Medicine (NEET) feels too long or risky, TN offers 7 other valid paths—from Banking to TNPSC Group 1.",
-                selectPath: "Select A Path To Explore",
-                years: "Years",
-                originalPlan: "Original Plan",
-                strategicPivot: "Strategic Pivot",
-                ageFinish: "Age at Finish",
-                costEst: "Cost Est.",
-                whyChoose: "Why Choose This?",
-                thePath: "The Path",
-                aiRisk: "AI Disruption Risk",
-                aiRiskHigh: "Automation may affect entry-level roles. Requires constant upskilling.",
-                aiRiskLow: "Human judgment is the primary value. AI is strictly assistive.",
-                savePath: "Save This Path to My Plan",
-                noSelection: "Select a career path on the left to see details."
-            }
+            appDesc: "Tamil Nadu Edition"
         },
+        landing: {
+            title: "FutureMap",
+            titleSuffix: "Tamil Nadu",
+            subtitle: "Stop Guessing. Start Planning. The Career Map for Tamil Nadu.",
+            cta_archetype: "Find Your Archetype",
+            cta_archetype_desc: "Not sure which character to pick? Take the 2-minute personality test.",
+            cta_archetype_btn: "Start Validated Test",
+            cta_roi: "Plan Your ROI",
+            cta_roi_desc: "See the real cost of college. Plan your ROI.",
+            cta_roi_btn: "Open Calculator"
+        },
+        archetype: {
+            step1: "Step 1: Choose Your Character",
+            title: "Who do you want to be?",
+            subtitle: "Don't choose a degree. Choose a future. Pick your archetype to see the roadmap.",
+            roadmap: "Your Strategic Roadmap",
+            active: "Quest Active",
+            paths: "Your Paths",
+            boss: "Boss Battles (Exams)",
+            powerups: "Power-ups (Scholarships)",
+            noExams: "No specific entrance exams for this path.",
+            claim: "Claim",
+            more: "more scholarships available"
+        },
+        streamDetail: {
+            lastUpdated: "Last Updated in NOV 2025",
+            tabs: {
+                overview: "Overview",
+                reality: "Reality Check",
+                fees: "Fees & ROI",
+                future: "2036 Future"
+            },
+            demand: "Industry Demand",
+            dna: "Required DNA (Skills)",
+            path: "Academic Path",
+            brutal: "The Brutal Truth (Downsides)",
+            facts: "TN Market Facts (Validated)",
+            govtCost: "Govt Seat Cost",
+            privCost: "Private Mgmt Cost",
+            perYear: "Per Year",
+            salary: "Salary Reality (Freshers)",
+            salaryNote: "Based on 2024 hiring trends in Chennai/Bangalore.",
+            vantage: "2036 Vantage Point",
+            outlook: "What will this job look like in 10 years?",
+            resilience: "AI Resilience Score",
+            safe: "Safe from AI Disruption",
+            assisted: "Will be AI-Assisted",
+            risk: "High Risk of Automation"
+        },
+        moduleB: {
+            title: "Module B: The School Years (Gr 8-10)",
+            heading: "Ignore the Noise.",
+            subheading: "At this age, coaching centers will sell you 'Foundation Courses'.",
+            subheadingHighlight: "Don't buy them.",
+            backpack: "The Mandatory Backpack",
+            backpackDesc: "Select items you are actively building. Reach 100%.",
+            readiness: "Readiness",
+            distractions: "Ignore These (Distractions)",
+            distractionsList: [
+                "Expensive 'Psychology Summer Camps' (Scams)",
+                "Random 'Olympiads' that nobody recognizes",
+                "Obsessing over 'Clinical Disorders' (Too early)"
+            ],
+            doThese: "Do These Instead (Chennai)",
+            doTheseList: [
+                "Visit the Birla Planetarium (Science interest)",
+                "Read 'The Man Who Mistook His Wife for a Hat' (Oliver Sacks)",
+                "Volunteer at an NGO like The Banyan (if age permits)"
+            ],
+            enterGate: "Enter Decision Gate",
+            completeAll: "Complete All Items"
+        },
+        moduleD: {
+            title: "Module D: Undergraduate Choices (Chennai)",
+            heading: "The College Hunt.",
+            subheading: "You are now ~17 years old. You need a Bachelor's degree. In Chennai, the college 'brand' matters for your Master's application later.",
+            probability: {
+                strong: "Strong Chance",
+                low: "Very Low",
+                difficult: "Difficult",
+                possible: "Possible"
+            },
+            keyCourses: "Key Courses",
+            fees: "Fees/Yr",
+            apply: "Apply Here",
+            warningTitle: "Warning: Marks vs Reality",
+            warningDesc: "Admission to colleges like Loyola or MCC is incredibly competitive. If you don't have 95%+ in Grade 12 (CBSE/State), you need a backup plan."
+        },
+
         guide: {
             title: "How to Navigate Your Future",
             subtitle: "FutureMap TN isn't just a website; it's a strategic framework. Follow these 5 steps to build a career that survives the next decade.",
@@ -228,25 +171,7 @@ export const translations = {
             lastUpdated: "Last Updated",
             verified: "Verified"
         },
-        moduleA: {
-            badge: "Reality Check Initiated",
-            title: "So, You Want to Fix Brains?",
-            subtitle: "Everyone in Chennai wants to be a \"Neuropsychologist\". 90% end up in HR or School Counseling. Let's see if you can handle the truth.",
-            myth: {
-                title: "The \"Neuro\" Myth",
-                desc: "You can’t just \"study Neuro\". In India, to touch a patient, you must first be a Licensed Clinical Psychologist (RCI). That takes 7-8 years."
-            },
-            job: {
-                title: "Chennai Job Scene",
-                desc: "Key Hubs: Apollo, MIOT, SRMC, SCARF. Junior Starting Pay: ₹25k - ₹35k/month. Yes, that is less than an IT freshers."
-            },
-            rci: {
-                title: "The RCI Gate",
-                desc: "There are < 30 RCI seats in India, but 50,000+ Psychology starts. Success Rate: < 2%. Harder to get into NIMHANS than Harvard."
-            },
-            accept: "I'll Take the Risk. What's Next?",
-            disclaimer: "Disclaimer: Salaries and job data estimated based on current Chennai/India market trends."
-        },
+
         validation: {
             edition: "Tamil Nadu Edition",
             briefing: "Executive Briefing (Read First)",
@@ -398,8 +323,9 @@ export const translations = {
             alternatives: "மாற்றுப் பாதைகள் (Pivots)",
             author: "உருவாக்கியவர் பற்றி",
             appName: "ஃபியூச்சர் மேப் TN",
-            appDesc: "தமிழ்நாடு பதிப்பு",
-            landing: {
+            appDesc: "தமிழ்நாடு பதிப்பு"
+        },
+        landing: {
                 title: "ஃபியூச்சர் மேப்",
                 titleSuffix: "தமிழ்நாடு",
                 subtitle: "யூகிக்க வேண்டாம். திட்டமிடத் தொடங்குங்கள். தமிழ்நாட்டிற்கான தொழில் வழிகாட்டி.",
