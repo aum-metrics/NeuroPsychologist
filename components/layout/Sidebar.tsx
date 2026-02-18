@@ -16,6 +16,7 @@ export const sidebarItems = [
     { href: "/modules/scholarships", icon: GraduationCap, label: "Scholarships" },
     { href: "/modules/gen-ai", icon: Cpu, label: "Future Proofing" },
     { href: "/modules/alternatives", icon: Map, label: "Career Pivots" },
+    { href: "/author", icon: User, label: "About Creator" },
 ];
 
 export function Sidebar() {
