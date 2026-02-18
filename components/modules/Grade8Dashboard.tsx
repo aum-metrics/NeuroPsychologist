@@ -48,7 +48,56 @@ export function Grade8Dashboard() {
     const { t } = useLanguage();
 
     const STAGES: Stage[] = [
-        // ... (this part is fine, skipping lines for brevity if using ReplaceFileContent on smaller chunks, but MultiReplace requires precision)
+        {
+            id: "interests",
+            title: t("diagnostics.quiz.stage1.title"),
+            desc: t("diagnostics.quiz.stage1.desc"),
+            questions: [
+                {
+                    text: t("diagnostics.quiz.stage1.q1.text"),
+                    options: [
+                        { text: t("diagnostics.quiz.stage1.q1.opt1"), score: { eng: 3, sci: 2 } },
+                        { text: t("diagnostics.quiz.stage1.q1.opt2"), score: { des: 3, art: 3, tech: 1 } },
+                        { text: t("diagnostics.quiz.stage1.q1.opt3"), score: { art: 3, law: 2 } },
+                        { text: t("diagnostics.quiz.stage1.q1.opt4"), score: { mgmt: 3, law: 1 } }
+                    ]
+                },
+                {
+                    text: t("diagnostics.quiz.stage1.q2.text"),
+                    options: [
+                        { text: t("diagnostics.quiz.stage1.q2.opt1"), score: { eng: 3, sci: 3 } },
+                        { text: t("diagnostics.quiz.stage1.q2.opt2"), score: { des: 3, art: 2 } },
+                        { text: t("diagnostics.quiz.stage1.q2.opt3"), score: { law: 3, gov: 2 } },
+                        { text: t("diagnostics.quiz.stage1.q2.opt4"), score: { mgmt: 3, com: 2 } }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "aptitude",
+            title: t("diagnostics.quiz.stage2.title"),
+            desc: t("diagnostics.quiz.stage2.desc"),
+            questions: [
+                {
+                    text: t("diagnostics.quiz.stage2.q1.text"),
+                    options: [
+                        { text: t("diagnostics.quiz.stage2.q1.opt1"), score: { eng: 3, com: 2 } },
+                        { text: t("diagnostics.quiz.stage2.q1.opt2"), score: { des: 3, art: 1 } },
+                        { text: t("diagnostics.quiz.stage2.q1.opt3"), score: { law: 3, art: 2, gov: 2 } },
+                        { text: t("diagnostics.quiz.stage2.q1.opt4"), score: { med: 3, sci: 2 } }
+                    ]
+                },
+                {
+                    text: t("diagnostics.quiz.stage2.q2.text"),
+                    options: [
+                        { text: t("diagnostics.quiz.stage2.q2.opt1"), score: { eng: 3, sci: 2 } },
+                        { text: t("diagnostics.quiz.stage2.q2.opt2"), score: { mgmt: 3, law: 2 } },
+                        { text: t("diagnostics.quiz.stage2.q2.opt3"), score: { des: 3, art: 2 } },
+                        { text: t("diagnostics.quiz.stage2.q2.opt4"), score: { law: 2, gov: 2, sci: 2 } }
+                    ]
+                }
+            ]
+        }
     ];
     // I need to be careful not to delete the STAGES content I just added.
     // The previous tool call inserted STAGES.
