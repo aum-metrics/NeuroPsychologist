@@ -5,12 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Brain, BookOpen, GitBranch, AlertTriangle, GraduationCap, Map, ShieldAlert, Cpu, LogOut, User, Baby, Calculator } from "lucide-react";
+import { Brain, BookOpen, GitBranch, AlertTriangle, GraduationCap, Map, ShieldAlert, Cpu, LogOut, User, Baby } from "lucide-react";
 
 export const sidebarItems = [
     { href: "/reality-check", icon: AlertTriangle, label: "Reality Check" },
     { href: "/modules/grade8", icon: Baby, label: "Grade 8-9 Start" },
-    { href: "/tools/cost-calculator", icon: Calculator, label: "Plan Your ROI" },
     { href: "/modules/streams", icon: GitBranch, label: "Streams" },
     { href: "/modules/exams", icon: BookOpen, label: "Entrance Exams" },
     { href: "/modules/scholarships", icon: GraduationCap, label: "Scholarships" },
