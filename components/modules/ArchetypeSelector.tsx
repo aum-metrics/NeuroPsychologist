@@ -25,8 +25,8 @@ const ARCHETYPES = [
     },
     {
         id: "medical",
-        title: "The Healer",
-        desc: "Doctors, Psychologists, Vets. Guardians of Life.",
+        title: "The Medical Specialist",
+        desc: "Doctors, Psychologists, Vets. Guardians of Health.",
         icon: Heart,
         color: "text-red-500",
         bg: "bg-red-50 dark:bg-red-950/30",
@@ -58,8 +58,8 @@ const ARCHETYPES = [
     },
     {
         id: "commerce",
-        title: "The Tycoon",
-        desc: "CA, Finance, Banking. Masters of Money.",
+        title: "The Financier",
+        desc: "CA, Investment Bankers, Analysts. Masters of Capital.",
         icon: Briefcase,
         color: "text-emerald-500",
         bg: "bg-emerald-50 dark:bg-emerald-950/30",

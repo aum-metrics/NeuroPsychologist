@@ -107,5 +107,17 @@ export const CAREER_BRANCHES: CareerBranch[] = [
         jobBreadth: "Very Narrow",
         aiRisk: "Medium",
         description: "TN is the 'SaaS Capital'. Great ecosystem for building products, or modernizing family MSMEs.",
+    },
+    {
+        id: "hybrid_tech",
+        title: "Hybrid / Tech-Integrated",
+        triggers: ["Loves two subjects", "Bio + Math", "Finance + Code"],
+        pathway: ["Bio-Informatics", "FinTech (B.Com + Python)", "Legal Tech"],
+        yearsToMaster: "1",
+        costEstimate: "₹50k - 2 Lakhs",
+        salaryPotential: "₹8 - 15 LPA",
+        jobBreadth: "High",
+        aiRisk: "Low",
+        description: "The sweet spot. Don't just be a Coder. Be a 'Coder who knows Biology' or a 'Lawyer who knows AI'.",
     }
 ];

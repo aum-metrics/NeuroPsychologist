@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { IndianRupee, Calculator, TrendingUp } from "lucide-react";
+import { IndianRupee, Calculator, TrendingUp, AlertTriangle } from "lucide-react";
 
 export function CostCalculator() {
     const [stream, setStream] = useState("Engineering");
@@ -133,6 +133,18 @@ export function CostCalculator() {
                 <p className="text-[10px] text-muted-foreground text-center">
                     *Estimates only. Does not account for loan interest or scholarships.
                 </p>
+
+                <div className="bg-yellow-50 dark:bg-yellow-900/10 p-3 rounded-lg border border-yellow-200 dark:border-yellow-800 flex gap-3 items-start">
+                    <AlertTriangle className="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                        <p className="text-xs font-bold text-yellow-800 dark:text-yellow-200">Volatility Warning</p>
+                        <p className="text-[10px] text-yellow-700 dark:text-yellow-300 leading-tight">
+                            This calculator uses linear math (Entry Level Salary). Real careers are non-linear.
+                            A <strong>Designer</strong> might start at ₹4LPA but hit ₹20LPA in 3 years.
+                            An <strong>Engineer</strong> might stall at ₹6LPA. Skills matter more than degrees.
+                        </p>
+                    </div>
+                </div>
 
             </CardContent>
         </Card>

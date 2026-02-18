@@ -45,6 +45,11 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                             <Badge variant="outline" className="bg-background/50 backdrop-blur">TN Edition</Badge>
                         </div>
                         <p className="text-muted-foreground line-clamp-1">{stream.overview}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                            <Badge variant="secondary" className="text-[10px] bg-emerald-50 text-emerald-700 border-emerald-200">
+                                Verified: Feb 2026
+                            </Badge>
+                        </div>
                     </div>
 
                     {/* Custom Tabs */}

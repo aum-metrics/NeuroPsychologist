@@ -110,7 +110,7 @@ export function Grade8Dashboard() {
                 }
             },
             med: {
-                title: "The Healer",
+                title: "The Medical Specialist",
                 coreArchetype: "medical",
                 desc: "Medicine / Allied Health / Psychology",
                 icon: Heart, color: "text-red-600", bg: "bg-red-50",
@@ -209,7 +209,7 @@ export function Grade8Dashboard() {
                             {result.title}
                         </h2>
                         <Badge variant="outline" className="mt-2 text-xs uppercase tracking-widest opacity-70">
-                            Archetype: {result.coreArchetype.replace("tech", "Tech Innovator").replace("medical", "Healer").replace("management", "Leader").replace("creative", "Creator").replace("commerce", "Tycoon")}
+                            Archetype: {result.coreArchetype.replace("tech", "Tech Innovator").replace("medical", "Medical Specialist").replace("management", "Leader").replace("creative", "Creator").replace("commerce", "Financier")}
                         </Badge>
                         <p className="text-xl font-medium mt-2 text-foreground/80">{result.desc}</p>
                     </CardHeader>
