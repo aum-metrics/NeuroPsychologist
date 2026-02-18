@@ -58,7 +58,7 @@ export function ModuleCStreams() {
                         />
                     </div>
                     <select
-                        className="p-3 rounded-lg border border-border bg-background h-12 w-full md:w-auto"
+                        className="p-3 rounded-lg border border-border bg-background h-12 w-full md:w-auto text-base"
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                     >

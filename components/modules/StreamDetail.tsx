@@ -35,7 +35,7 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
     return (
         <Dialog open={open} onOpenChange={onClose}>
             {/* Added bg-white dark:bg-zinc-950 and z-[200] explicitly to fix transparency issue */}
-            <DialogContent className="fixed left-[50%] top-[50%] z-[200] grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-0 border bg-white dark:bg-zinc-950 p-0 shadow-2xl duration-200 sm:rounded-xl md:w-full max-h-[90vh] overflow-hidden border-border flex flex-col isolate">
+            <DialogContent className="fixed left-[50%] top-[50%] z-[200] grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-0 border bg-white dark:bg-zinc-950 p-0 shadow-2xl duration-200 sm:rounded-xl md:w-full max-h-[85dvh] overflow-hidden border-border flex flex-col isolate">
 
                 {/* Header */}
                 <div className="p-6 pb-4 border-b bg-muted/20 backdrop-blur-md">
@@ -74,7 +74,7 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                     </div>
                 </div>
 
-                <ScrollArea className="flex-1 p-6 bg-muted/10 h-full">
+                <ScrollArea className="flex-1 p-6 bg-muted/10 h-full overflow-y-auto w-full">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeTab}
