@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { Zap, Heart, Target, Palette, Briefcase, ArrowRight, BookOpen, Lock, Terminal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { STREAMS } from "@/lib/data/streams";
-import { ENTRANCE_EXAMS } from "@/lib/data/exams";
+import { STREAMS, Stream } from "@/lib/data/streams";
+import { EXAMS } from "@/lib/data/exams";
 import { SCHOLARSHIPS } from "@/lib/data/scholarships";
 import { StreamDetail } from "./StreamDetail";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 // Archetype Data
 const ARCHETYPES = [
@@ -71,19 +72,20 @@ const ARCHETYPES = [
 
 export function ArchetypeSelector() {
     const [selectedArchetype, setSelectedArchetype] = useState<string | null>(null);
-    const [selectedStream, setSelectedStream] = useState<any | null>(null);
+    const [selectedStream, setSelectedStream] = useState<Stream | null>(null);
+    const { language } = useLanguage();
 
     const filteredStreams = selectedArchetype
         ? STREAMS.filter(s => s.archetype === selectedArchetype)
         : [];
 
+    // Filter exams that are relevant to the selected archetype's streams
     const filteredExams = selectedArchetype
-        ? ENTRANCE_EXAMS.filter(e => e.archetype === selectedArchetype)
+        ? EXAMS.filter(e => e.streams.some(streamId => filteredStreams.some(s => s.id === streamId)))
         : [];
 
-    const filteredScholarships = selectedArchetype
-        ? SCHOLARSHIPS.filter(s => s.archetype === selectedArchetype || s.archetype === 'all')
-        : [];
+    // Show top scholarships for everyone for now, as they are generally applicable
+    const filteredScholarships = SCHOLARSHIPS;
 
     return (
         <div className="w-full space-y-12">
@@ -92,13 +94,15 @@ export function ArchetypeSelector() {
                 <div className="space-y-8">
                     <div className="text-center space-y-4">
                         <Badge variant="outline" className="text-lg py-1 px-4 border-primary/50 text-foreground animate-pulse">
-                            Step 1: Choose Your Character
+                            {language === 'ta' ? "படி 1: உங்கள் பாத்திரத்தைத் தேர்வுசெய்க" : "Step 1: Choose Your Character"}
                         </Badge>
                         <h2 className="text-4xl md:text-5xl font-black font-heading tracking-tight text-foreground">
-                            Who do you want to be?
+                            {language === 'ta' ? "நீங்கள் யாராக இருக்க விரும்புகிறீர்கள்?" : "Who do you want to be?"}
                         </h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            Don't choose a degree. Choose a future. Pick your archetype to see the roadmap.
+                            {language === 'ta'
+                                ? "பட்டப்படிப்பைத் தேர்ந்தெடுக்காதீர்கள். எதிர்காலத்தைத் தேர்ந்தெடுங்கள்."
+                                : "Don't choose a degree. Choose a future. Pick your archetype to see the roadmap."}
                         </p>
                     </div>
 
@@ -175,26 +179,28 @@ export function ArchetypeSelector() {
                                 Your Paths
                             </h3>
                             <div className="grid grid-cols-1 gap-4">
-                                {filteredStreams.map((stream, idx) => (
-                                    <motion.div
-                                        key={stream.id}
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: idx * 0.1 }}
-                                        onClick={() => setSelectedStream(stream)}
-                                        className="group relative bg-card hover:bg-accent/5 rounded-xl border border-border p-5 cursor-pointer hover:shadow-md transition-all flex justify-between items-center"
-                                    >
-                                        <div>
-                                            <h4 className="font-bold text-lg">{stream.title}</h4>
-                                            <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{stream.overview}</p>
-                                        </div>
-                                        <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
-                                    </motion.div>
-                                ))}
+                                {filteredStreams.map((stream, idx) => {
+                                    const title = language === 'ta' ? stream.title_ta || stream.title : stream.title;
+                                    const overview = language === 'ta' ? stream.overview_ta || stream.overview : stream.overview;
+                                    return (
+                                        <motion.div
+                                            key={stream.id}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: idx * 0.1 }}
+                                            onClick={() => setSelectedStream(stream)}
+                                            className="group relative bg-card hover:bg-accent/5 rounded-xl border border-border p-5 cursor-pointer hover:shadow-md transition-all flex justify-between items-center"
+                                        >
+                                            <div>
+                                                <h4 className="font-bold text-lg">{title}</h4>
+                                                <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{overview}</p>
+                                            </div>
+                                            <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
 
-                            {/* NATIVE AD SLOT: Removed for V1 Release */}
-                            {/* <div className="mt-8 p-1 rounded-xl bg-gradient-to-r from-yellow-400 to-orange-500"> ... </div> */}
                         </div>
 
                         {/* RIGHT COL: BOSS BATTLES & LOOT - 6 Cols */}
@@ -207,14 +213,18 @@ export function ArchetypeSelector() {
                                     Boss Battles (Exams)
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {filteredExams.map((exam) => (
-                                        <div key={exam.id} className="p-3 border rounded-lg bg-red-50/50 dark:bg-red-950/10 border-red-100 dark:border-red-900/30">
-                                            <div className="font-bold text-sm">{exam.name}</div>
-                                            <div className="text-[10px] text-muted-foreground mt-1">
-                                                {exam.keyDates.split(';')[0]}
+                                    {filteredExams.map((exam) => {
+                                        const title = language === 'ta' ? exam.title_ta || exam.title : exam.title;
+                                        const date = language === 'ta' ? exam.examDate_ta || exam.examDate : exam.examDate;
+                                        return (
+                                            <div key={exam.id} className="p-3 border rounded-lg bg-red-50/50 dark:bg-red-950/10 border-red-100 dark:border-red-900/30">
+                                                <div className="font-bold text-sm">{title}</div>
+                                                <div className="text-[10px] text-muted-foreground mt-1">
+                                                    {date}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                     {filteredExams.length === 0 && (
                                         <div className="text-sm text-muted-foreground italic col-span-2">No specific entrance exams for this path.</div>
                                     )}
@@ -228,15 +238,19 @@ export function ArchetypeSelector() {
                                     Power-ups (Scholarships)
                                 </h3>
                                 <div className="grid grid-cols-1 gap-3">
-                                    {filteredScholarships.slice(0, 3).map((sch) => (
-                                        <div key={sch.id} className="p-3 border rounded-lg bg-emerald-50/50 dark:bg-emerald-950/10 border-emerald-100 dark:border-emerald-900/30 flex justify-between items-center">
-                                            <div>
-                                                <div className="font-bold text-sm text-emerald-900 dark:text-emerald-100">{sch.name}</div>
-                                                <div className="text-[10px] text-muted-foreground">{sch.reward}</div>
+                                    {filteredScholarships.slice(0, 3).map((sch) => {
+                                        const title = language === 'ta' ? sch.title_ta || sch.title : sch.title;
+                                        const amount = language === 'ta' ? sch.amount_ta || sch.amount : sch.amount;
+                                        return (
+                                            <div key={sch.id} className="p-3 border rounded-lg bg-emerald-50/50 dark:bg-emerald-950/10 border-emerald-100 dark:border-emerald-900/30 flex justify-between items-center">
+                                                <div>
+                                                    <div className="font-bold text-sm text-emerald-900 dark:text-emerald-100">{title}</div>
+                                                    <div className="text-[10px] text-muted-foreground">{amount}</div>
+                                                </div>
+                                                <Badge variant="outline" className="bg-background text-[10px] h-5">Claim</Badge>
                                             </div>
-                                            <Badge variant="outline" className="bg-background text-[10px] h-5">Claim</Badge>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                     <div className="text-xs text-center text-muted-foreground pt-2">
                                         + {Math.max(0, filteredScholarships.length - 3)} more scholarships available
                                     </div>
