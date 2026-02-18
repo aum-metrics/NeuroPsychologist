@@ -92,7 +92,7 @@ export function ModuleHGenAI() {
                 <h3 className="text-lg font-bold text-primary mb-2">The 2030 Rule</h3>
                 <p className="text-sm text-muted-foreground">
                     "Don't just be a 'user' of tools. Be the one who understands the <strong>Domain</strong>. An engineer who knows <em>Agricultural Soil Science</em> is safer than a generic C++ coder.
-                    <strong>Goal:</strong> AI Literacy, not just Prompt Engineering."
+                    <strong>Goal:</strong> AI Literacy, not just chatting with bots."
                 </p>
             </div>
         </div>

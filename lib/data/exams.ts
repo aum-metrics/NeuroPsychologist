@@ -15,7 +15,7 @@ export interface EntranceExam {
 export const ENTRANCE_EXAMS: EntranceExam[] = [
     {
         id: "tnea",
-        name: "TNEA Admission (Not an Exam)",
+        name: "TNEA Admission Process",
         category: "State Admission",
         summary: "Counselling based on Class 12 Marks (Cutoff 200). For Anna Univ & Affiliated Colleges.",
         eligibility: "Class 12 Maths/Phy/Chem. TN Domicile preferred.",
@@ -28,8 +28,8 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "viteee",
-        name: "VITEEE (Private)",
-        category: "University Exam",
+        name: "VITEEE (Private Univ)",
+        category: "Private University",
         summary: "Mandatory for VIT Vellore/Chennai. High competition.",
         eligibility: "Class 12 PCM/PCB with 60%.",
         testPattern: "CBT. 2.5 Hrs. Aptitude included.",
@@ -41,8 +41,8 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "srmjeee",
-        name: "SRMJEEE (Private)",
-        category: "University Exam",
+        name: "SRMJEEE (Private Univ)",
+        category: "Private University",
         summary: "For SRM KTR and Vadapalani campuses.",
         eligibility: "Class 12 PCM/PCB.",
         testPattern: "Remote Proctored / Center Based.",
@@ -51,6 +51,19 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
         clashingExams: "None",
         studyCostsLink: "https://www.srmist.edu.in/",
         archetype: "tech"
+    },
+    {
+        id: "uceed",
+        name: "UCEED (IIT Bombay)",
+        category: "Design",
+        summary: "For B.Des in IITs and IIITDM Kancheepuram.",
+        eligibility: "Class 12 Any Stream.",
+        testPattern: "Part A (CBT) + Part B (Drawing).",
+        keyDates: "Reg: Oct; Exam: Jan.",
+        testCentres: "Chennai, Coimbatore, Madurai",
+        clashingExams: "JEE Main (Jan)",
+        studyCostsLink: "https://www.uceed.iitb.ac.in/",
+        archetype: "creative"
     },
     {
         id: "neet_ug",
@@ -67,7 +80,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "jee_main",
-        name: "JEE Main (All India)",
+        name: "JEE Main (Central)",
         category: "Engineering",
         summary: "For NIT Trichy, IIIT Kancheepuram & IIT Madras (Adv).",
         eligibility: "Class 12 PCM. 75% Marks (for NITs).",
@@ -132,7 +145,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "cuet_ug",
-        name: "CUET UG (All India)",
+        name: "CUET UG (Central)",
         category: "Central Univ",
         summary: "For Central Univ of Tamil Nadu (Thiruvarur) & Pondicherry Univ.",
         eligibility: "Class 12 Pass.",
