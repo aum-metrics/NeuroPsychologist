@@ -4,71 +4,61 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, RefreshCcw, ArrowRight, Target, Brain, Heart, Zap, Award } from "lucide-react";
+import { RefreshCcw, ArrowRight, Target, Brain, Heart, Zap, Award, LucideIcon } from "lucide-react";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/context/LanguageContext";
 
-// Deep Diagnostic Data
-const STAGES = [
-    {
-        id: "interests",
-        title: "Stage 1: Core Interests",
-        desc: "What genuinely excites you when no one is watching?",
-        questions: [
-            {
-                text: "On a Sunday afternoon, you are most likely to:",
-                options: [
-                    { text: "Take apart a broken toy/gadget to see inside.", score: { eng: 3, sci: 2 } },
-                    { text: "Draw, paint, or edit a video.", score: { des: 3, art: 2 } },
-                    { text: "Read a book or write a story.", score: { art: 3, law: 2 } },
-                    { text: "Organize a game for your friends.", score: { mgmt: 3, law: 1 } }
-                ]
-            },
-            {
-                text: "Which YouTube channel category do you watch most?",
-                options: [
-                    { text: "Tech reviews / Science experiments (Mark Rober)", score: { eng: 3, sci: 3 } },
-                    { text: "Art tutorials / Speedpaints / Editors", score: { des: 3, art: 2 } },
-                    { text: "Documentaries / News / History", score: { law: 3, gov: 2 } },
-                    { text: "Business stories / Shark Tank", score: { mgmt: 3, com: 2 } }
-                ]
-            }
-        ]
-    },
-    {
-        id: "aptitude",
-        title: "Stage 2: Natural Aptitude",
-        desc: "Be honest. What comes easily to you?",
-        questions: [
-            {
-                text: "In Maths class, you usually:",
-                options: [
-                    { text: "Solve problems before the teacher finishes.", score: { eng: 3, com: 2 } },
-                    { text: "Struggle with calculated but love Geometry/Shapes.", score: { des: 3, art: 1 } },
-                    { text: "Find it boring, prefer History/English.", score: { law: 3, art: 2, gov: 2 } },
-                    { text: "Do okay, but prefer Biology diagrams.", score: { med: 3, sci: 2 } }
-                ]
-            },
-            {
-                text: "When facing a difficult problem, you:",
-                options: [
-                    { text: "Break it down logically step-by-step.", score: { eng: 3, sci: 2 } },
-                    { text: "Ask others for help and lead the team.", score: { mgmt: 3, law: 2 } },
-                    { text: "Look for a creative workaround.", score: { des: 3, art: 2 } },
-                    { text: "Research similar problems in the past.", score: { law: 2, gov: 2, sci: 2 } }
-                ]
-            }
-        ]
-    }
-];
+
+
+
+interface QuestionOption {
+    text: string;
+    score: Record<string, number>;
+}
+
+interface Question {
+    text: string;
+    options: QuestionOption[];
+}
+
+interface Stage {
+    id: string;
+    title: string;
+    desc: string;
+    questions: Question[];
+}
+
+interface DiagnosticResult {
+    title: string;
+    coreArchetype: string;
+    desc: string;
+    icon: React.ElementType;
+    color: string;
+    bg: string;
+    strategy: {
+        math: string;
+        read: string;
+        code: string;
+        habit: string;
+    };
+}
 
 export function Grade8Dashboard() {
     const { t } = useLanguage();
+
+    const STAGES: Stage[] = [
+        // ... (this part is fine, skipping lines for brevity if using ReplaceFileContent on smaller chunks, but MultiReplace requires precision)
+    ];
+    // I need to be careful not to delete the STAGES content I just added.
+    // The previous tool call inserted STAGES.
+    // I will target the useState line instead.
+
     const [started, setStarted] = useState(false);
     const [currentStage, setCurrentStage] = useState(0);
     const [currentQ, setCurrentQ] = useState(0);
     const [scores, setScores] = useState<Record<string, number>>({ eng: 0, med: 0, art: 0, des: 0, law: 0, mgmt: 0, sci: 0, gov: 0, com: 0 });
-    const [result, setResult] = useState<any>(null);
+    const [result, setResult] = useState<DiagnosticResult | null>(null);
 
     const handleAnswer = (scoreUpdate: Record<string, number | undefined>) => {
         const newScores = { ...scores };
@@ -98,71 +88,115 @@ export function Grade8Dashboard() {
         const sorted = Object.entries(finalScores).sort((a, b) => b[1] - a[1]);
         const top1 = sorted[0][0];
 
-        const pathMap: Record<string, any> = {
+        const pathMap: Record<string, DiagnosticResult> = {
             eng: {
-                title: "The Tech Innovator",
+                title: t("diagnostics.results.eng.title"),
                 coreArchetype: "tech",
-                desc: "Engineering / Architecture / Pilot",
+                desc: t("diagnostics.results.eng.desc"),
                 icon: Zap, color: "text-blue-600", bg: "bg-blue-50",
                 strategy: {
-                    math: "Focus on Algebra & Calculus. Target >95%.",
-                    read: "Read 'Wired' or 'Veritasium' blogs.",
-                    code: "Learn Python or C++. Build a website.",
-                    habit: "Build one physical project (Wood/Electronics) per month."
+                    math: t("diagnostics.results.eng.strategy.math"),
+                    read: t("diagnostics.results.eng.strategy.read"),
+                    code: t("diagnostics.results.eng.strategy.code"),
+                    habit: t("diagnostics.results.eng.strategy.habit")
                 }
             },
             med: {
-                title: "The Medical Specialist",
+                title: t("diagnostics.results.med.title"),
                 coreArchetype: "medical",
-                desc: "Medicine / Allied Health / Psychology",
+                desc: t("diagnostics.results.med.desc"),
                 icon: Heart, color: "text-red-600", bg: "bg-red-50",
                 strategy: {
-                    math: "Focus on Statistics & Data Interpretation.",
-                    read: "Read biographies of Doctors/Scientists.",
-                    code: "No heavy coding. Learn to use Excel for data.",
-                    habit: "Volunteer at a local NGO or Hospital."
+                    math: t("diagnostics.results.med.strategy.math"),
+                    read: t("diagnostics.results.med.strategy.read"),
+                    code: t("diagnostics.results.med.strategy.code"),
+                    habit: t("diagnostics.results.med.strategy.habit")
                 }
             },
             des: {
-                title: "The Creator",
+                title: t("diagnostics.results.des.title"),
                 coreArchetype: "creative",
-                desc: "Design / Media / Animation",
+                desc: t("diagnostics.results.des.desc"),
                 icon: Palette, color: "text-purple-600", bg: "bg-purple-50",
                 strategy: {
-                    math: "Focus on Geometry & Visual Spatial reasoning.",
-                    read: "Read Graphic Novels and Art History.",
-                    code: "Learn HTML/CSS for portfolios.",
-                    habit: "Keep a daily sketchbook. Draw 1 thing/day."
+                    math: t("diagnostics.results.des.strategy.math"),
+                    read: t("diagnostics.results.des.strategy.read"),
+                    code: t("diagnostics.results.des.strategy.code"),
+                    habit: t("diagnostics.results.des.strategy.habit")
                 }
             },
             mgmt: {
-                title: "The Leader",
+                title: t("diagnostics.results.mgmt.title"),
                 coreArchetype: "management",
-                desc: "Management / Entrepreneurship",
+                desc: t("diagnostics.results.mgmt.desc"),
                 icon: Target, color: "text-orange-600", bg: "bg-orange-50",
                 strategy: {
-                    math: "Focus on Commercial Math (Profit/Loss/Interest).",
-                    read: "Read 'The Economic Times' or Business Biographies.",
-                    code: "Master Excel & Powerpoint.",
-                    habit: "Organize a school event or club."
+                    math: t("diagnostics.results.mgmt.strategy.math"),
+                    read: t("diagnostics.results.mgmt.strategy.read"),
+                    code: t("diagnostics.results.mgmt.strategy.code"),
+                    habit: t("diagnostics.results.mgmt.strategy.habit")
                 }
             },
             law: {
-                title: "The Advocate",
+                title: t("diagnostics.results.law.title"),
                 coreArchetype: "management",
-                desc: "Law / Judiciary / Policy",
+                desc: t("diagnostics.results.law.desc"),
                 icon: Gavel, color: "text-yellow-600", bg: "bg-yellow-50",
                 strategy: {
-                    math: "Focus on Logic & Reasoning problems.",
-                    read: "Read 'The Hindu' Editorial daily.",
-                    code: "Learn to blog/type fast.",
-                    habit: "Participate in every Debate competition."
+                    math: t("diagnostics.results.law.strategy.math"),
+                    read: t("diagnostics.results.law.strategy.read"),
+                    code: t("diagnostics.results.law.strategy.code"),
+                    habit: t("diagnostics.results.law.strategy.habit")
                 }
             },
-            gov: { title: "The Administrator", coreArchetype: "management", desc: "Civil Services / TNPSC", icon: Landmark, color: "text-green-600", bg: "bg-green-50", strategy: { math: "General Aptitude.", read: "Daily Newspaper (Tamil & English).", code: "Basic Computer Skills.", habit: "Memorize Maps and History timelines." } },
-            com: { title: "The Financier", coreArchetype: "commerce", desc: "CA / Banking / Finance", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50", strategy: { math: "Master Accounts & Arithmetic.", read: "Financial News.", code: "Advanced Excel.", habit: "Manage your own pocket money budget." } },
-            sci: { title: "The Researcher", coreArchetype: "tech", desc: "Pure Sciences / ISRO", icon: Brain, color: "text-cyan-600", bg: "bg-cyan-50", strategy: { math: "Advanced Mathematics.", read: "Science Journals (Nature/Science).", code: "MATLAB or Python.", habit: "Conduct one home experiment weekly." } },
-            art: { title: "The Artist", coreArchetype: "creative", desc: "Literature / Humanities", icon: Feather, color: "text-pink-600", bg: "bg-pink-50", strategy: { math: "Basic Math literacy.", read: "Classics and Modern Literature.", code: "Digital Publishing tools.", habit: "Write 500 words daily." } }
+            gov: {
+                title: t("diagnostics.results.gov.title"),
+                coreArchetype: "management",
+                desc: t("diagnostics.results.gov.desc"),
+                icon: Landmark, color: "text-green-600", bg: "bg-green-50",
+                strategy: {
+                    math: t("diagnostics.results.gov.strategy.math"),
+                    read: t("diagnostics.results.gov.strategy.read"),
+                    code: t("diagnostics.results.gov.strategy.code"),
+                    habit: t("diagnostics.results.gov.strategy.habit")
+                }
+            },
+            com: {
+                title: t("diagnostics.results.com.title"),
+                coreArchetype: "commerce",
+                desc: t("diagnostics.results.com.desc"),
+                icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50",
+                strategy: {
+                    math: t("diagnostics.results.com.strategy.math"),
+                    read: t("diagnostics.results.com.strategy.read"),
+                    code: t("diagnostics.results.com.strategy.code"),
+                    habit: t("diagnostics.results.com.strategy.habit")
+                }
+            },
+            sci: {
+                title: t("diagnostics.results.sci.title"),
+                coreArchetype: "tech",
+                desc: t("diagnostics.results.sci.desc"),
+                icon: Brain, color: "text-cyan-600", bg: "bg-cyan-50",
+                strategy: {
+                    math: t("diagnostics.results.sci.strategy.math"),
+                    read: t("diagnostics.results.sci.strategy.read"),
+                    code: t("diagnostics.results.sci.strategy.code"),
+                    habit: t("diagnostics.results.sci.strategy.habit")
+                }
+            },
+            art: {
+                title: t("diagnostics.results.art.title"),
+                coreArchetype: "creative",
+                desc: t("diagnostics.results.art.desc"),
+                icon: Feather, color: "text-pink-600", bg: "bg-pink-50",
+                strategy: {
+                    math: t("diagnostics.results.art.strategy.math"),
+                    read: t("diagnostics.results.art.strategy.read"),
+                    code: t("diagnostics.results.art.strategy.code"),
+                    habit: t("diagnostics.results.art.strategy.habit")
+                }
+            }
         };
 
         setResult(pathMap[top1] || pathMap['eng']);
