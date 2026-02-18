@@ -13,6 +13,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 export const metadata: Metadata = {
   title: "FutureMap Tamil Nadu | Career Navigation System",
   description: "The Definitive Career Navigation System for Tamil Nadu Students (Class 8-12).",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 import { Sidebar } from "@/components/layout/Sidebar";

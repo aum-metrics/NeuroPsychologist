@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Map, Target, Calculator } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArchetypeSelector } from "@/components/modules/ArchetypeSelector";
 import { motion } from "framer-motion";
@@ -18,9 +19,17 @@ export default function Home() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 ring-1 ring-primary/50"
+        className="w-32 h-32 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 ring-1 ring-primary/50 relative overflow-hidden"
       >
-        <Map className="w-12 h-12 text-primary" />
+        <div className="relative w-20 h-20">
+          <Image
+            src="/logo.png"
+            alt="FutureMap Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
       </motion.div>
 
       <div className="space-y-4 max-w-3xl">
