@@ -33,25 +33,24 @@ export function ModuleHGenAI() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                                <div className="font-bold text-foreground">The "Syntactic" Coder</div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                    Junior devs who only know syntax but not system design. AI Agents (Devin, Cursor) write boilerplate faster.
-                                    <strong>Pivot:</strong> Learn System Architecture & AI Integration.
-                                </div>
+                            <div className="font-bold text-foreground">The "Syntactic" Coder</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Junior devs who only know syntax but not system design. AI Agents (Devin, Cursor) write boilerplate faster.
+                                <strong>Pivot:</strong> Learn System Architecture & AI Integration.
                             </div>
-                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                                <div className="font-bold text-foreground">Basic Content & Support</div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                    L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
-                                </div>
+                        </div>
+                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                            <div className="font-bold text-foreground">Basic Content & Support</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
                             </div>
-                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                                <div className="font-bold text-foreground">Routine Accounting</div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                    Tally entry and basic audits. AI automates compliant tax filing instantly.
-                                </div>
+                        </div>
+                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                            <div className="font-bold text-foreground">Routine Accounting</div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                                Tally entry and basic audits. AI automates compliant tax filing instantly.
                             </div>
+                        </div>
                     </CardContent>
                 </Card>
 
