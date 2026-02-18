@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google"; // Using Outfit for headings, 
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers/Providers";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -59,6 +60,7 @@ export default function RootLayout({
               {children}
             </main>
           </div>
+          <Analytics />
         </Providers>
       </body>
     </html>
