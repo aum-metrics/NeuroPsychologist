@@ -4,57 +4,60 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, AlertTriangle, GitBranch, BookOpen, GraduationCap, Cpu, PlayCircle } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 export default function GuidePage() {
+    const { t } = useLanguage();
+
     const steps = [
         {
             id: 1,
-            title: "The Reality Check",
+            title: t("guide.step1"),
             icon: AlertTriangle,
             color: "text-red-500",
             bg: "bg-red-50 dark:bg-red-900/10",
-            description: "Don't start with a dream; start with data. Understand the harsh realities of the current job market in Tamil Nadu before you choose a path.",
-            action: "Check Reality",
+            description: t("guide.step1Desc"),
+            action: t("guide.action.check"),
             href: "/reality-check"
         },
         {
             id: 2,
-            title: "Choose Your Character",
+            title: t("guide.step2"),
             icon: GitBranch,
             color: "text-blue-500",
             bg: "bg-blue-50 dark:bg-blue-900/10",
-            description: "Are you a Creator, an Analyst, or a Healer? Pick a career stream based on your inherent traits, not just your marks.",
-            action: "Explore Streams",
+            description: t("guide.step2Desc"),
+            action: t("guide.action.explore"),
             href: "/modules/streams"
         },
         {
             id: 3,
-            title: "Lock the Exam",
+            title: t("guide.step3"),
             icon: BookOpen,
             color: "text-purple-500",
             bg: "bg-purple-50 dark:bg-purple-900/10",
-            description: "Great careers have gatekeepers. Identify the specific entrance exams (NEET, JEE, TNEA) you need to crack for your chosen stream.",
-            action: "View Exams",
+            description: t("guide.step3Desc"),
+            action: t("guide.action.view"),
             href: "/modules/exams"
         },
         {
             id: 4,
-            title: "Fund Your Future",
+            title: t("guide.step4"),
             icon: GraduationCap,
             color: "text-green-500",
             bg: "bg-green-50 dark:bg-green-900/10",
-            description: "Education is expensive. Find scholarships and financial aid options tailored for Tamil Nadu students.",
-            action: "Find Scholarships",
+            description: t("guide.step4Desc"),
+            action: t("guide.action.find"),
             href: "/modules/scholarships"
         },
         {
             id: 5,
-            title: "Future Proofing",
+            title: t("guide.step5"),
             icon: Cpu,
             color: "text-orange-500",
             bg: "bg-orange-50 dark:bg-orange-900/10",
-            description: "Will AI replace this job in 2030? Check the AI Resilience Score for your chosen career path.",
-            action: "Check AI Risk",
+            description: t("guide.step5Desc"),
+            action: t("guide.action.risk"),
             href: "/modules/gen-ai"
         }
     ];
@@ -64,12 +67,12 @@ export default function GuidePage() {
 
             {/* Header */}
             <section className="text-center space-y-4 py-8">
-                <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1">Start Here</Badge>
+                <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1">{t("nav.guide")}</Badge>
                 <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground">
-                    How to Navigate<br /> <span className="text-primary">Your Future</span>
+                    {t("guide.title")}
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    FutureMap TN isn't just a website; it's a strategic framework. Follow these 5 steps to build a career that survives the next decade.
+                    {t("guide.subtitle")}
                 </p>
             </section>
 
@@ -117,7 +120,7 @@ export default function GuidePage() {
                 <Link href="/reality-check">
                     <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all transform hover:-translate-y-1">
                         <PlayCircle className="w-5 h-5 mr-2" />
-                        Begin Step 1: Reality Check
+                        {t("guide.startBtn")}
                     </Button>
                 </Link>
             </div>

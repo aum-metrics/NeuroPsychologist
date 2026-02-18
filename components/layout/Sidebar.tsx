@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Brain, BookOpen, GitBranch, AlertTriangle, GraduationCap, Map, ShieldAlert, Cpu, LogOut, User, Baby, Compass } from "lucide-react";
+import { useLanguage } from "@/lib/context/LanguageContext";
+import { LanguageToggle } from "@/components/ui/language-toggle";
 
 export const sidebarItems = [
     { href: "/guide", icon: Compass, label: "Start Here: Guide" },
@@ -22,19 +24,25 @@ export const sidebarItems = [
 export function Sidebar() {
     const pathname = usePathname();
     const router = useRouter();
+    const { t } = useLanguage();
+
+    const translatedItems = sidebarItems.map(item => ({
+        ...item,
+        translatedLabel: t(getTranslationKey(item.href))
+    }));
 
     return (
         <div className="hidden md:flex w-64 flex-col fixed inset-y-0 z-50 bg-card border-r border-border">
             <div className="p-6 border-b border-border cursor-pointer hover:bg-accent/5 transition-colors" onClick={() => router.push('/')}>
                 <h2 className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent flex items-center gap-2">
                     <Map className="w-6 h-6 text-primary" />
-                    FutureMap TN
+                    {t("nav.appName")}
                 </h2>
-                <p className="text-xs text-muted-foreground mt-1">Tamil Nadu Edition</p>
+                <p className="text-xs text-muted-foreground mt-1">{t("nav.appDesc")}</p>
             </div>
             <ScrollArea className="flex-1 p-4">
                 <div className="space-y-2">
-                    {sidebarItems.map((item) => {
+                    {translatedItems.map((item) => {
                         const isActive = pathname === item.href;
                         return (
                             <Button
@@ -44,12 +52,30 @@ export function Sidebar() {
                                 onClick={() => router.push(item.href)}
                             >
                                 <item.icon className="w-4 h-4" />
-                                <span className="truncate">{item.label}</span>
+                                <span className="truncate">{item.translatedLabel}</span>
                             </Button>
                         )
                     })}
                 </div>
             </ScrollArea>
+            <div className="p-4 border-t border-border">
+                <LanguageToggle />
+            </div>
         </div>
     );
+}
+
+function getTranslationKey(href: string): string {
+    switch (href) {
+        case "/guide": return "nav.guide";
+        case "/reality-check": return "nav.realityCheck";
+        case "/modules/grade8": return "nav.grade8";
+        case "/modules/streams": return "nav.streams";
+        case "/modules/exams": return "nav.exams";
+        case "/modules/scholarships": return "nav.scholarships";
+        case "/modules/gen-ai": return "nav.genAI";
+        case "/modules/alternatives": return "nav.alternatives";
+        case "/author": return "nav.author";
+        default: return "nav.guide";
+    }
 }
