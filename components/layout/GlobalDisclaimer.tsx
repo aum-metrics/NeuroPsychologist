@@ -8,9 +8,6 @@ export function GlobalDisclaimer() {
             <AlertTriangle className="w-3 h-3 shrink-0" />
             <span>
                 <strong>Community Dataset (Open Access).</strong> Data on Schemes & Exams is for awareness. Always verify with official TNEA/NTA bulletins.
-                <a href="https://github.com/aum-metrics/NeuroPsychologist/issues" target="_blank" className="underline ml-2 hover:text-blue-500">
-                    Found an error? Suggest Edit
-                </a>
             </span>
         </div>
     );
