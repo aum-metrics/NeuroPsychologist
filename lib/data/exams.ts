@@ -208,3 +208,4 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
         studyCostsLink: "https://dge.tn.gov.in/",
         archetype: "management"
     }
+];
