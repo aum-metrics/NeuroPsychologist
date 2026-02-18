@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google"; // Using Outfit for headings, Inter for body
 import "./globals.css";
+import "./scrollbar.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers/Providers";
 import { Analytics } from "@vercel/analytics/react";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 import { Sidebar } from "@/components/layout/Sidebar";
+import { MobileSidebar } from "@/components/layout/MobileSidebar";
 
 import { GlobalDisclaimer } from "@/components/layout/GlobalDisclaimer";
 
@@ -54,6 +56,7 @@ export default function RootLayout({
             }}
           />
           <GlobalDisclaimer />
+          <MobileSidebar />
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="flex-1 md:ml-64 relative flex flex-col">
