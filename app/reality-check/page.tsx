@@ -1,4 +1,3 @@
-```
 "use client";
 
 import React from "react";
@@ -15,7 +14,7 @@ export default function RealityCheckPage() {
 
     return (
         <div className="min-h-screen p-4 md:p-8 space-y-12 max-w-7xl mx-auto">
-            
+
             {/* Hero Section */}
             <section className="text-center space-y-6 py-12">
                 <Badge variant="destructive" className="px-4 py-1 text-base animate-pulse">
@@ -25,7 +24,7 @@ export default function RealityCheckPage() {
                     {t("reality.subtitle")}
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                   {t("reality.impactDesc")}
+                    {t("reality.impactDesc")}
                 </p>
             </section>
 
@@ -88,8 +87,8 @@ export default function RealityCheckPage() {
                 <StreamReality />
             </section>
 
-             {/* CTA */}
-             <div className="flex justify-center pt-8">
+            {/* CTA */}
+            <div className="flex justify-center pt-8">
                 <Link href="/modules/streams">
                     <Button size="lg" className="text-lg px-8 py-6 rounded-full">
                         {t("reality.cta")} <ArrowRight className="ml-2 w-5 h-5" />
@@ -99,4 +98,3 @@ export default function RealityCheckPage() {
         </div>
     );
 }
-```
