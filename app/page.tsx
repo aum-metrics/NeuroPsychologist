@@ -26,7 +26,7 @@ export default function Home() {
           FutureMap <span className="text-primary">Tamil Nadu</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground">
-          The Definitive Career Navigation System for Tamil Nadu Students.
+          Stop Guessing. Start Planning. The Career Map for Tamil Nadu.
         </p>
       </div>
 
@@ -44,10 +44,10 @@ export default function Home() {
           </div>
           <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
             <Target className="w-5 h-5 text-red-600" />
-            Side Quest: Diagnostics
+            Find Your Archetype
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Not sure which character to pick? Take the 2-minute DNA test.
+            Not sure which character to pick? Take the 2-minute personality test.
           </p>
           <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/modules/grade8')}>
             Start Validated Test
@@ -61,10 +61,10 @@ export default function Home() {
           </div>
           <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
             <Calculator className="w-5 h-5 text-green-600" />
-            Side Quest: ROI Check
+            Plan Your ROI
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Calculate family budget vs. college fees. Don't go in blind.
+            See the real cost of college. Plan your ROI.
           </p>
           <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/tools/roi')}>
             Open Calculator

@@ -12,30 +12,30 @@ export interface Scholarship {
 export const SCHOLARSHIPS: Scholarship[] = [
     {
         id: "first_grad",
-        name: "First Graduate Concession (FG)",
+        name: "First Graduate Tuition Waiver",
         provider: "TN Govt",
         eligibility: "First person in family to attend college. TNEA/Medical Counseling admits only.",
-        reward: "₹20,000 - ₹25,000 Tuition Waiver/Year.",
+        reward: "₹20,000 - ₹27,500 Fee Waiver/Year. No cash.",
         deadline: "During Admission",
         stream: "Engg / Med / Arts",
         archetype: "all"
     },
     {
         id: "quota_75",
-        name: "7.5% Govt School Quota",
+        name: "7.5% Govt School Quota (Free Seat)",
         provider: "TN Govt",
-        eligibility: "Studied 6th-12th in Govt Schools of TN. For Professional Courses.",
-        reward: "100% Fee Waiver (Tuition + Hostel + Transport).",
+        eligibility: "Studied 6th-12th in Govt Schools of TN. For Professional Courses (Engg/Med).",
+        reward: "100% Fee Waiver (Tuition + Hostel + Transport). Life Changer.",
         deadline: "TNEA / NEET Counseling",
         stream: "Professional Courses",
         archetype: "all"
     },
     {
         id: "pudhumai_penn",
-        name: "Pudhumai Penn (Moovalur Ramamirtham)",
+        name: "Pudhumai Penn Scheme",
         provider: "TN Govt (Social Welfare)",
         eligibility: "Girl students who studied 6th-12th in Govt Schools.",
-        reward: "₹1,000/month directly to Bank A/c (₹36,000 total for 3 years).",
+        reward: "₹1,000/month directly to Bank A/c (₹36,000 total).",
         deadline: "Apply via College",
         stream: "All Degree Courses",
         archetype: "all"

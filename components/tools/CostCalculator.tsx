@@ -39,8 +39,8 @@ export function CostCalculator() {
                         <Calculator className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                        <CardTitle>Education ROI Calculator</CardTitle>
-                        <CardDescription>Estimate the real cost of your degree</CardDescription>
+                        <CardTitle>Plan Your ROI</CardTitle>
+                        <CardDescription>See the real cost of college. Plan your future.</CardDescription>
                     </div>
                 </div>
             </CardHeader>

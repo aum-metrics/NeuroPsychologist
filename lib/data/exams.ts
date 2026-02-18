@@ -15,11 +15,11 @@ export interface EntranceExam {
 export const ENTRANCE_EXAMS: EntranceExam[] = [
     {
         id: "tnea",
-        name: "TNEA (Counseling)",
-        category: "Engineering",
-        summary: "Single Window Counseling for Anna Univ & Affiliated Colleges.",
-        eligibility: "Class 12 Maths/Phy/Chem marks. No Exam.",
-        testPattern: "Based on Cutoff (out of 200). Maths(100) + Phy(50) + Chem(50).",
+        name: "TNEA Admission (Not an Exam)",
+        category: "State Admission",
+        summary: "Counselling based on Class 12 Marks (Cutoff 200). For Anna Univ & Affiliated Colleges.",
+        eligibility: "Class 12 Maths/Phy/Chem. TN Domicile preferred.",
+        testPattern: "No Exam. Ranking based on (Maths/2) + (Phy/4) + (Chem/4).",
         keyDates: "Reg: May; Rank List: June; Counseling: July-Aug.",
         testCentres: "Online / TFC Centers",
         clashingExams: "None",
@@ -27,8 +27,34 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
         archetype: "tech"
     },
     {
+        id: "viteee",
+        name: "VITEEE (Private)",
+        category: "University Exam",
+        summary: "Mandatory for VIT Vellore/Chennai. High competition.",
+        eligibility: "Class 12 PCM/PCB with 60%.",
+        testPattern: "CBT. 2.5 Hrs. Aptitude included.",
+        keyDates: "April.",
+        testCentres: "All Major Cities",
+        clashingExams: "JEE Main (April)",
+        studyCostsLink: "https://vit.ac.in/",
+        archetype: "tech"
+    },
+    {
+        id: "srmjeee",
+        name: "SRMJEEE (Private)",
+        category: "University Exam",
+        summary: "For SRM KTR and Vadapalani campuses.",
+        eligibility: "Class 12 PCM/PCB.",
+        testPattern: "Remote Proctored / Center Based.",
+        keyDates: "April - June Phases.",
+        testCentres: "Online/Center",
+        clashingExams: "None",
+        studyCostsLink: "https://www.srmist.edu.in/",
+        archetype: "tech"
+    },
+    {
         id: "neet_ug",
-        name: "NEET UG",
+        name: "NEET UG (All India)",
         category: "Medical",
         summary: "Mandatory for MBBS/BDS in TN (Govt & Mgmt Quota).",
         eligibility: "Class 12 PCB. Min 50%. Age > 17.",
@@ -41,7 +67,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "jee_main",
-        name: "JEE Main",
+        name: "JEE Main (All India)",
         category: "Engineering",
         summary: "For NIT Trichy, IIIT Kancheepuram & IIT Madras (Adv).",
         eligibility: "Class 12 PCM. 75% Marks (for NITs).",
@@ -54,7 +80,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "tancet",
-        name: "TANCET",
+        name: "TANCET (State)",
         category: "Postgrad (MBA/MCA)",
         summary: "Entry to Anna Univ & Govt Colleges for MBA/MCA/ME.",
         eligibility: "Any Degree (50%).",
@@ -67,7 +93,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "tnpsc_grp4",
-        name: "TNPSC Group 4",
+        name: "TNPSC Group 4 (State)",
         category: "Govt Job",
         summary: "VAO, Junior Assistant, Typist roles.",
         eligibility: "SSLC (10th Std) Pass.",
@@ -80,7 +106,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "clat",
-        name: "CLAT",
+        name: "CLAT (All India)",
         category: "Law",
         summary: "For NLU Trichy (TNNLU) and other NLUs.",
         eligibility: "Class 12 Pass (45%).",
@@ -93,7 +119,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "nift",
-        name: "NIFT Entrance",
+        name: "NIFT Entrance (All India)",
         category: "Design",
         summary: "Admission to NIFT Chennai (Taramani).",
         eligibility: "Class 12 Any Stream.",
@@ -106,9 +132,9 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "cuet_ug",
-        name: "CUET UG",
+        name: "CUET UG (All India)",
         category: "Central Univ",
-        summary: "For Central Univ of Tamil Nadu (Thiruvarur).",
+        summary: "For Central Univ of Tamil Nadu (Thiruvarur) & Pondicherry Univ.",
         eligibility: "Class 12 Pass.",
         testPattern: "CBT. Domain subjects.",
         keyDates: "May.",
@@ -119,7 +145,7 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
     },
     {
         id: "imucet",
-        name: "IMU CET",
+        name: "IMU CET (All India)",
         category: "Maritime",
         summary: "Indian Maritime University (Chennai HQ).",
         eligibility: "Class 12 PCM.",
@@ -182,4 +208,3 @@ export const ENTRANCE_EXAMS: EntranceExam[] = [
         studyCostsLink: "https://dge.tn.gov.in/",
         archetype: "management"
     }
-];

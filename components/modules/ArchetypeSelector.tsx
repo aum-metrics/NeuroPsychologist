@@ -26,7 +26,7 @@ const ARCHETYPES = [
     {
         id: "medical",
         title: "The Medical Specialist",
-        desc: "Doctors, Psychologists, Vets. Guardians of Health.",
+        desc: "Doctors, Biologists, Psychologists. Guardians of Health.",
         icon: Heart,
         color: "text-red-500",
         bg: "bg-red-50 dark:bg-red-950/30",
@@ -59,7 +59,7 @@ const ARCHETYPES = [
     {
         id: "commerce",
         title: "The Financier",
-        desc: "CA, Investment Bankers, Analysts. Masters of Capital.",
+        desc: "CA, B.Com, Investment Bankers. Masters of Capital.",
         icon: Briefcase,
         color: "text-emerald-500",
         bg: "bg-emerald-50 dark:bg-emerald-950/30",
@@ -98,7 +98,7 @@ export function ArchetypeSelector() {
                             Who do you want to be?
                         </h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            Don't look for "courses". Look for your identity. Select an archetype to unlock your quest map.
+                            Don't choose a degree. Choose a future. Pick your archetype to see the roadmap.
                         </p>
                     </div>
 

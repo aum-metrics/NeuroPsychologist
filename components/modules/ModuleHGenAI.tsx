@@ -33,23 +33,25 @@ export function ModuleHGenAI() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">Generic Coding ("Service Based")</div>
-                            <div className="text-xs text-muted-foreground mt-1">
-                                Writing boilerplate Java/Python code for mass recruiters. AI Agents (Devin, Cursor) do this faster and cheaper.
+                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                                <div className="font-bold text-foreground">The "Syntactic" Coder</div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                    Junior devs who only know syntax but not system design. AI Agents (Devin, Cursor) write boilerplate faster.
+                                    <strong>Pivot:</strong> Learn System Architecture & AI Integration.
+                                </div>
                             </div>
-                        </div>
-                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">Basic Content & Support</div>
-                            <div className="text-xs text-muted-foreground mt-1">
-                                L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
+                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                                <div className="font-bold text-foreground">Basic Content & Support</div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                    L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
+                                </div>
                             </div>
-                        </div>
-                        <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">Routine Accounting</div>
-                            <div className="text-xs text-muted-foreground mt-1">
-                                Tally entry and basic audits. AI automates compliant tax filing instantly.
+                            <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
+                                <div className="font-bold text-foreground">Routine Accounting</div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                    Tally entry and basic audits. AI automates compliant tax filing instantly.
+                                </div>
                             </div>
-                        </div>
                     </CardContent>
                 </Card>
 
@@ -90,7 +92,8 @@ export function ModuleHGenAI() {
             <div className="bg-primary/5 p-6 rounded-xl border border-primary/20 text-center">
                 <h3 className="text-lg font-bold text-primary mb-2">The 2030 Rule</h3>
                 <p className="text-sm text-muted-foreground">
-                    "Don't just be a 'user' of tools. Be the one who understands the <strong>Domain</strong>. An engineer who knows <em>Agricultural Soil Science</em> is safer than a generic C++ coder."
+                    "Don't just be a 'user' of tools. Be the one who understands the <strong>Domain</strong>. An engineer who knows <em>Agricultural Soil Science</em> is safer than a generic C++ coder.
+                    <strong>Goal:</strong> AI Literacy, not just Prompt Engineering."
                 </p>
             </div>
         </div>

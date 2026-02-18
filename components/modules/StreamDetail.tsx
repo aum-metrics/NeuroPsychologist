@@ -89,7 +89,7 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                 <div className="space-y-6">
                                     <div className="bg-blue-50 dark:bg-blue-900/10 p-5 rounded-2xl border border-blue-100 dark:border-blue-800">
                                         <h4 className="font-bold flex items-center gap-2 text-blue-800 dark:text-blue-300 mb-2">
-                                            <GraduationCap className="w-5 h-5" /> Scope in Tamil Nadu
+                                            <GraduationCap className="w-5 h-5" /> Industry Demand
                                         </h4>
                                         <p className="text-sm font-medium leading-relaxed text-blue-900 dark:text-blue-100">{stream.scope}</p>
                                     </div>

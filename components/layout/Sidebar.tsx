@@ -8,14 +8,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Brain, BookOpen, GitBranch, AlertTriangle, GraduationCap, Map, ShieldAlert, Cpu, LogOut, User, Baby, Calculator } from "lucide-react";
 
 const sidebarItems = [
-    { href: "/reality-check", icon: AlertTriangle, label: "Module A: Reality Check" },
+    { href: "/reality-check", icon: AlertTriangle, label: "Reality Check" },
     { href: "/modules/grade8", icon: Baby, label: "Grade 8-9 Start" },
-    { href: "/tools/cost-calculator", icon: Calculator, label: "ROI Calculator" },
+    { href: "/tools/cost-calculator", icon: Calculator, label: "Plan Your ROI" },
     { href: "/modules/streams", icon: GitBranch, label: "Streams" },
     { href: "/modules/exams", icon: BookOpen, label: "Entrance Exams" },
     { href: "/modules/scholarships", icon: GraduationCap, label: "Scholarships" },
-    { href: "/modules/gen-ai", icon: Cpu, label: "Module H: GenAI & Future" },
-    { href: "/modules/alternatives", icon: Map, label: "Module I: Pivot Map" },
+    { href: "/modules/gen-ai", icon: Cpu, label: "Future Proofing" },
+    { href: "/modules/alternatives", icon: Map, label: "Career Pivots" },
 ];
 
 export function Sidebar() {
