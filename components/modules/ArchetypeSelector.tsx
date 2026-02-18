@@ -73,7 +73,7 @@ const ARCHETYPES = [
 export function ArchetypeSelector() {
     const [selectedArchetype, setSelectedArchetype] = useState<string | null>(null);
     const [selectedStream, setSelectedStream] = useState<Stream | null>(null);
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
 
     const filteredStreams = selectedArchetype
         ? STREAMS.filter(s => s.archetype === selectedArchetype)
@@ -94,15 +94,13 @@ export function ArchetypeSelector() {
                 <div className="space-y-8">
                     <div className="text-center space-y-4">
                         <Badge variant="outline" className="text-lg py-1 px-4 border-primary/50 text-foreground animate-pulse">
-                            {language === 'ta' ? "படி 1: உங்கள் பாத்திரத்தைத் தேர்வுசெய்க" : "Step 1: Choose Your Character"}
+                            {t("archetype.step1")}
                         </Badge>
                         <h2 className="text-4xl md:text-5xl font-black font-heading tracking-tight text-foreground">
-                            {language === 'ta' ? "நீங்கள் யாராக இருக்க விரும்புகிறீர்கள்?" : "Who do you want to be?"}
+                            {t("archetype.title")}
                         </h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            {language === 'ta'
-                                ? "பட்டப்படிப்பைத் தேர்ந்தெடுக்காதீர்கள். எதிர்காலத்தைத் தேர்ந்தெடுங்கள்."
-                                : "Don't choose a degree. Choose a future. Pick your archetype to see the roadmap."}
+                            {t("archetype.subtitle")}
                         </p>
                     </div>
 
@@ -162,11 +160,11 @@ export function ArchetypeSelector() {
                                 <h2 className="text-3xl font-black font-heading">
                                     {ARCHETYPES.find(a => a.id === selectedArchetype)?.title}
                                 </h2>
-                                <p className="text-muted-foreground text-sm">Your Strategic Roadmap</p>
+                                <p className="text-muted-foreground text-sm">{t("archetype.roadmap")}</p>
                             </div>
                         </div>
                         <Badge className={`text-lg py-1 px-4 ${ARCHETYPES.find(a => a.id === selectedArchetype)?.bg} ${ARCHETYPES.find(a => a.id === selectedArchetype)?.color} border-current`}>
-                            Quest Active
+                            {t("archetype.active")}
                         </Badge>
                     </div>
 
@@ -176,7 +174,7 @@ export function ArchetypeSelector() {
                         <div className="lg:col-span-6 space-y-6">
                             <h3 className="text-xl font-bold flex items-center gap-2">
                                 <BookOpen className="w-5 h-5 text-primary" />
-                                Your Paths
+                                {t("archetype.paths")}
                             </h3>
                             <div className="grid grid-cols-1 gap-4">
                                 {filteredStreams.map((stream, idx) => {
@@ -210,7 +208,7 @@ export function ArchetypeSelector() {
                             <div className="space-y-4">
                                 <h3 className="text-xl font-bold flex items-center gap-2 text-red-600 dark:text-red-400">
                                     <Lock className="w-5 h-5" />
-                                    Boss Battles (Exams)
+                                    {t("archetype.boss")}
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     {filteredExams.map((exam) => {
@@ -226,7 +224,7 @@ export function ArchetypeSelector() {
                                         );
                                     })}
                                     {filteredExams.length === 0 && (
-                                        <div className="text-sm text-muted-foreground italic col-span-2">No specific entrance exams for this path.</div>
+                                        <div className="text-sm text-muted-foreground italic col-span-2">{t("archetype.noExams")}</div>
                                     )}
                                 </div>
                             </div>
@@ -235,7 +233,7 @@ export function ArchetypeSelector() {
                             <div className="space-y-4">
                                 <h3 className="text-xl font-bold flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
                                     <Zap className="w-5 h-5" />
-                                    Power-ups (Scholarships)
+                                    {t("archetype.powerups")}
                                 </h3>
                                 <div className="grid grid-cols-1 gap-3">
                                     {filteredScholarships.slice(0, 3).map((sch) => {
@@ -247,12 +245,12 @@ export function ArchetypeSelector() {
                                                     <div className="font-bold text-sm text-emerald-900 dark:text-emerald-100">{title}</div>
                                                     <div className="text-[10px] text-muted-foreground">{amount}</div>
                                                 </div>
-                                                <Badge variant="outline" className="bg-background text-[10px] h-5">Claim</Badge>
+                                                <Badge variant="outline" className="bg-background text-[10px] h-5">{t("archetype.claim")}</Badge>
                                             </div>
                                         );
                                     })}
                                     <div className="text-xs text-center text-muted-foreground pt-2">
-                                        + {Math.max(0, filteredScholarships.length - 3)} more scholarships available
+                                        + {Math.max(0, filteredScholarships.length - 3)} {t("archetype.more")}
                                     </div>
                                 </div>
                             </div>

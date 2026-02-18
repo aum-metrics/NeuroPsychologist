@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, RefreshCcw, ArrowRight, Target, Brain, Heart, Zap, Award } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 // Deep Diagnostic Data
 const STAGES = [
@@ -62,6 +63,7 @@ const STAGES = [
 ];
 
 export function Grade8Dashboard() {
+    const { t } = useLanguage();
     const [started, setStarted] = useState(false);
     const [currentStage, setCurrentStage] = useState(0);
     const [currentQ, setCurrentQ] = useState(0);
@@ -177,17 +179,15 @@ export function Grade8Dashboard() {
         return (
             <Card className="max-w-2xl mx-auto mt-8 border-2 border-primary/20 bg-gradient-to-br from-background to-primary/5">
                 <CardHeader className="text-center pb-2">
-                    <Badge variant="secondary" className="mb-4 w-fit mx-auto px-4 py-1">Career Diagnostics v2.0</Badge>
-                    <CardTitle className="text-4xl font-heading font-black text-primary">Discover Your Core DNA</CardTitle>
+                    <Badge variant="secondary" className="mb-4 w-fit mx-auto px-4 py-1">{t("diagnostics.badge")}</Badge>
+                    <CardTitle className="text-4xl font-heading font-black text-primary">{t("diagnostics.title")}</CardTitle>
                     <CardDescription className="text-lg mt-2">
-                        This isn't a quiz. It's an algorithmic analysis of your interests, aptitude, and personality.
-                        <br />
-                        <strong>Takes ~2 minutes. Extremely Accurate.</strong>
+                        {t("diagnostics.subtitle")}
                     </CardDescription>
                 </CardHeader>
                 <CardFooter className="flex justify-center pt-6">
                     <Button size="lg" className="px-8 text-lg rounded-full h-14" onClick={() => setStarted(true)}>
-                        Start Diagnostics <ArrowRight className="ml-2 w-5 h-5" />
+                        {t("diagnostics.start")} <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                 </CardFooter>
             </Card>
@@ -202,14 +202,14 @@ export function Grade8Dashboard() {
             <div className="max-w-3xl mx-auto space-y-6 relative z-[50]">
                 <Card className={`border-2 ${result.bg} border-opacity-50 bg-white dark:bg-zinc-900 shadow-xl`}>
                     <CardHeader className="text-center">
-                        <Badge className="w-fit mx-auto mb-2 bg-primary text-white">Analysis Complete</Badge>
-                        <CardTitle className="text-2xl text-muted-foreground">Your Strategic Profile Matches:</CardTitle>
+                        <Badge className="w-fit mx-auto mb-2 bg-primary text-white">{t("diagnostics.complete")}</Badge>
+                        <CardTitle className="text-2xl text-muted-foreground">{t("diagnostics.profile")}</CardTitle>
                         <h2 className={`text-5xl font-heading font-black mt-2 ${result.color} flex items-center justify-center gap-3`}>
                             <Icon className="w-12 h-12" />
                             {result.title}
                         </h2>
                         <Badge variant="outline" className="mt-2 text-xs uppercase tracking-widest opacity-70">
-                            Archetype: {result.coreArchetype.replace("tech", "Tech Innovator").replace("medical", "Medical Specialist").replace("management", "Leader").replace("creative", "Creator").replace("commerce", "Financier")}
+                            {t("diagnostics.archetype")}: {result.coreArchetype.replace("tech", "Tech Innovator").replace("medical", "Medical Specialist").replace("management", "Leader").replace("creative", "Creator").replace("commerce", "Financier")}
                         </Badge>
                         <p className="text-xl font-medium mt-2 text-foreground/80">{result.desc}</p>
                     </CardHeader>
@@ -218,30 +218,30 @@ export function Grade8Dashboard() {
                         <div className="bg-background/80 backdrop-blur p-6 rounded-xl border border-border shadow-sm">
                             <h3 className="font-bold text-xl mb-4 flex items-center gap-2">
                                 <Target className="w-6 h-6 text-red-600" />
-                                Your Customized Foundation Strategy
+                                {t("diagnostics.foundation")}
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="p-3 rounded-lg border bg-background">
                                     <div className="text-sm font-bold text-muted-foreground uppercase mb-1 flex items-center gap-2">
-                                        <Zap className="w-3 h-3" /> Maths Strategy
+                                        <Zap className="w-3 h-3" /> {t("diagnostics.math")}
                                     </div>
                                     <p className="text-sm font-medium">{S.math}</p>
                                 </div>
                                 <div className="p-3 rounded-lg border bg-background">
                                     <div className="text-sm font-bold text-muted-foreground uppercase mb-1 flex items-center gap-2">
-                                        <Brain className="w-3 h-3" /> Reading List
+                                        <Brain className="w-3 h-3" /> {t("diagnostics.read")}
                                     </div>
                                     <p className="text-sm font-medium">{S.read}</p>
                                 </div>
                                 <div className="p-3 rounded-lg border bg-background">
                                     <div className="text-sm font-bold text-muted-foreground uppercase mb-1 flex items-center gap-2">
-                                        <Award className="w-3 h-3" /> Technical Skill
+                                        <Award className="w-3 h-3" /> {t("diagnostics.tech")}
                                     </div>
                                     <p className="text-sm font-medium">{S.code}</p>
                                 </div>
                                 <div className="p-3 rounded-lg border bg-background">
                                     <div className="text-sm font-bold text-muted-foreground uppercase mb-1 flex items-center gap-2">
-                                        <Heart className="w-3 h-3" /> Keyston Habit
+                                        <Heart className="w-3 h-3" /> {t("diagnostics.habit")}
                                     </div>
                                     <p className="text-sm font-medium">{S.habit}</p>
                                 </div>
@@ -250,7 +250,7 @@ export function Grade8Dashboard() {
 
                         <div className="flex gap-4 justify-center">
                             <Button variant="outline" onClick={() => { setStarted(false); setCurrentStage(0); setCurrentQ(0); setScores({ eng: 0, med: 0, art: 0, des: 0, law: 0, mgmt: 0, sci: 0, gov: 0, com: 0 }); setResult(null); }}>
-                                <RefreshCcw className="w-4 h-4 mr-2" /> Recalibrate
+                                <RefreshCcw className="w-4 h-4 mr-2" /> {t("diagnostics.recalibrate")}
                             </Button>
                         </div>
                     </CardContent>

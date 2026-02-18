@@ -41,14 +41,12 @@ export function ModuleCStreams() {
         <div className="space-y-8 max-w-7xl mx-auto py-8 px-4">
             {/* Header */}
             <section className="text-center space-y-4">
-                <Badge variant="outline" className="text-primary border-primary/30">Module C: The Tamil Nadu Fork</Badge>
+                <Badge variant="outline" className="text-primary border-primary/30">{t("moduleC.title")}</Badge>
                 <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
-                    {language === 'ta' ? "உங்கள் பாதையைக் கண்டறியவும்" : "Discover Your Path."}
+                    {t("moduleC.heading")}
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                    {language === 'ta'
-                        ? "தமிழ்நாட்டு மாணவர்களுக்கான 13 முக்கிய தொழில் வழிகளை ஆராயுங்கள். 2036 எதிர்காலப் பார்வையுடன் சரிபார்க்கப்பட்டது."
-                        : "Explore 13 major career streams available to students in Tamil Nadu. Validated with 2036 Future Outlooks."}
+                    {t("moduleC.subheading")}
                 </p>
 
                 {/* Search & Filter */}
@@ -56,7 +54,7 @@ export function ModuleCStreams() {
                     <div className="relative flex-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
-                            placeholder={t("exams.search")}
+                            placeholder={t("moduleC.searchPlaceholder")}
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="pl-9 h-12 bg-muted/50"
@@ -67,9 +65,9 @@ export function ModuleCStreams() {
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                     >
-                        <option value="all">{t("streams.filter")}</option>
-                        <option value="ai_proof">{language === 'ta' ? "AI பாதுகாப்பு" : "High AI Resilience"}</option>
-                        <option value="high_salary">{language === 'ta' ? "அதிக சம்பளம்" : "High Salary"}</option>
+                        <option value="all">{t("moduleC.filterAll")}</option>
+                        <option value="ai_proof">{t("moduleC.filterAI")}</option>
+                        <option value="high_salary">{t("moduleC.filterSalary")}</option>
                     </select>
                 </div>
             </section>
@@ -124,7 +122,7 @@ export function ModuleCStreams() {
 
             {filteredStreams.length === 0 && (
                 <div className="text-center py-20 text-muted-foreground">
-                    <p>No streams found matching "{searchTerm}".</p>
+                    <p>{t("moduleC.noResults")} "{searchTerm}".</p>
                 </div>
             )}
 

@@ -22,7 +22,7 @@ export function ScholarshipList() {
         <div className="space-y-8 max-w-6xl mx-auto py-8 px-4">
             {/* Header */}
             <section className="text-center space-y-4">
-                <Badge variant="outline" className="text-primary border-primary/30">Module E: Funding</Badge>
+                <Badge variant="outline" className="text-primary border-primary/30">{language === 'ta' ? "தொகுதி E: நிதி" : "Module E: Funding"}</Badge>
                 <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
                     {t("scholarships.title")}
                 </h1>
@@ -88,7 +88,7 @@ export function ScholarshipList() {
                             <CardFooter>
                                 <Button className="w-full" variant="secondary" asChild>
                                     <a href={s.applyLink} target="_blank" rel="noreferrer">
-                                        Apply Now <ExternalLink className="w-3 h-3 ml-2" />
+                                        {language === 'ta' ? "விண்ணப்பிக்கவும்" : "Apply Now"} <ExternalLink className="w-3 h-3 ml-2" />
                                     </a>
                                 </Button>
                             </CardFooter>

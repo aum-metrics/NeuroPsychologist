@@ -1,13 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Map, AlertTriangle, BookOpen, Search, Target, Calculator } from "lucide-react";
+import { ArrowRight, Map, Target, Calculator } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ArchetypeSelector } from "@/components/modules/ArchetypeSelector";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useLanguage();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[90vh] text-center px-4 space-y-8">
@@ -23,10 +25,10 @@ export default function Home() {
 
       <div className="space-y-4 max-w-3xl">
         <h1 className="text-5xl md:text-7xl font-heading font-black tracking-tight text-foreground">
-          FutureMap <span className="text-primary">Tamil Nadu</span>
+          {t("landing.title")} <span className="text-primary">{t("landing.titleSuffix")}</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground">
-          Stop Guessing. Start Planning. The Career Map for Tamil Nadu.
+          {t("landing.subtitle")}
         </p>
       </div>
 
@@ -44,13 +46,13 @@ export default function Home() {
           </div>
           <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
             <Target className="w-5 h-5 text-red-600" />
-            Find Your Archetype
+            {t("landing.cta_archetype")}
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Not sure which character to pick? Take the 2-minute personality test.
+            {t("landing.cta_archetype_desc")}
           </p>
           <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/modules/grade8')}>
-            Start Validated Test
+            {t("landing.cta_archetype_btn")}
           </Button>
         </div>
 
@@ -61,13 +63,13 @@ export default function Home() {
           </div>
           <h3 className="font-bold text-lg flex items-center gap-2 mb-2">
             <Calculator className="w-5 h-5 text-green-600" />
-            Plan Your ROI
+            {t("landing.cta_roi")}
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
-            See the real cost of college. Plan your ROI.
+            {t("landing.cta_roi_desc")}
           </p>
           <Button variant="secondary" size="sm" className="w-full" onClick={() => router.push('/tools/roi')}>
-            Open Calculator
+            {t("landing.cta_roi_btn")}
           </Button>
         </div>
       </div>

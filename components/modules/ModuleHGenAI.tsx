@@ -4,18 +4,21 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, Brain, AlertTriangle, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 export function ModuleHGenAI() {
+    const { t } = useLanguage();
+
     return (
         <div className="space-y-12 max-w-5xl mx-auto py-8 px-4">
             {/* Header */}
             <section className="text-center space-y-4">
-                <Badge variant="outline" className="text-purple-600 dark:text-purple-400 border-purple-500/30">Module H: Future Proofing</Badge>
+                <Badge variant="outline" className="text-purple-600 dark:text-purple-400 border-purple-500/30">{t("moduleH.title")}</Badge>
                 <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
-                    Will AI Eat Your Job?
+                    {t("moduleH.heading")}
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                    The rules of the game in 2030. What survives in Chennai, Coimbatore, and Bangalore.
+                    {t("moduleH.subheading")}
                 </p>
             </section>
 
@@ -28,27 +31,28 @@ export function ModuleHGenAI() {
                     <CardHeader>
                         <CardTitle className="text-destructive flex items-center gap-2">
                             <AlertTriangle className="w-5 h-5" />
-                            The "Red Zone" (High Risk)
+                            {t("moduleH.redZone.title")}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">The "Syntactic" Coder</div>
+                            <div className="font-bold text-foreground">{t("moduleH.redZone.coder.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                Junior devs who only know syntax but not system design. AI Agents (Devin, Cursor) write boilerplate faster.
-                                <strong>Pivot:</strong> Learn System Architecture & AI Integration.
+                                {t("moduleH.redZone.coder.desc")}
+                                <br />
+                                <strong>{t("moduleH.redZone.coder.pivot")}</strong>
                             </div>
                         </div>
                         <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">Basic Content & Support</div>
+                            <div className="font-bold text-foreground">{t("moduleH.redZone.support.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                L1 Customer Support, Basic Copywriting, Data Entry. Chatbots have already taken 40% of these jobs in Bangalore.
+                                {t("moduleH.redZone.support.desc")}
                             </div>
                         </div>
                         <div className="p-3 bg-background/50 rounded-lg border border-destructive/10">
-                            <div className="font-bold text-foreground">Routine Accounting</div>
+                            <div className="font-bold text-foreground">{t("moduleH.redZone.accounting.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                Tally entry and basic audits. AI automates compliant tax filing instantly.
+                                {t("moduleH.redZone.accounting.desc")}
                             </div>
                         </div>
                     </CardContent>
@@ -62,26 +66,26 @@ export function ModuleHGenAI() {
                     <CardHeader>
                         <CardTitle className="text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
                             <ShieldCheck className="w-5 h-5" />
-                            The "Green Zone" (Human Moat)
+                            {t("moduleH.greenZone.title")}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
-                            <div className="font-bold text-foreground">"Physical" Engineering</div>
+                            <div className="font-bold text-foreground">{t("moduleH.greenZone.physical.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                Civil site supervision, Mechanical R&D, Robotics hardware. AI can't build a bridge or fix a machine physically.
+                                {t("moduleH.greenZone.physical.desc")}
                             </div>
                         </div>
                         <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
-                            <div className="font-bold text-foreground">Healthcare & Empathy</div>
+                            <div className="font-bold text-foreground">{t("moduleH.greenZone.healthcare.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                Nursing, Physiotherapy, Doctor-Patient trust. People need human touch in crisis.
+                                {t("moduleH.greenZone.healthcare.desc")}
                             </div>
                         </div>
                         <div className="p-3 bg-background/50 rounded-lg border border-emerald-500/10">
-                            <div className="font-bold text-foreground">Creative Strategy</div>
+                            <div className="font-bold text-foreground">{t("moduleH.greenZone.creative.title")}</div>
                             <div className="text-xs text-muted-foreground mt-1">
-                                Brand building, Film direction, High-level Architecture. AI makes assets, Humans tell stories.
+                                {t("moduleH.greenZone.creative.desc")}
                             </div>
                         </div>
                     </CardContent>
@@ -89,10 +93,9 @@ export function ModuleHGenAI() {
             </div>
 
             <div className="bg-primary/5 p-6 rounded-xl border border-primary/20 text-center">
-                <h3 className="text-lg font-bold text-primary mb-2">The 2030 Rule</h3>
+                <h3 className="text-lg font-bold text-primary mb-2">{t("moduleH.rule2030.title")}</h3>
                 <p className="text-sm text-muted-foreground">
-                    "Don't just be a 'user' of tools. Be the one who understands the <strong>Domain</strong>. An engineer who knows <em>Agricultural Soil Science</em> is safer than a generic C++ coder.
-                    <strong>Goal:</strong> AI Literacy, not just chatting with bots."
+                    {t("moduleH.rule2030.desc")}
                 </p>
             </div>
         </div>

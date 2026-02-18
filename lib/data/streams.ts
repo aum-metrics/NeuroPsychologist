@@ -17,7 +17,9 @@ export interface Stream {
     keySkills: string[];
     keySkills_ta?: string[];
     academicRequirements: string;
+    academicRequirements_ta?: string;
     downsides: string;
+    downsides_ta?: string;
     studyCosts: {
         govt: string;
         private: string;

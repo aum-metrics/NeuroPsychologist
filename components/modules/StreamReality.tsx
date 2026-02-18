@@ -7,8 +7,10 @@ import { AlertTriangle, Skull, Target, ShieldAlert, CheckCircle2, MapPin, Gradua
 import { REALITY_DATA } from "@/lib/data/reality";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 export function StreamReality() {
+    const { t } = useLanguage();
     const [selectedStreamId, setSelectedStreamId] = useState("engineering");
     const selectedStream = REALITY_DATA.streams.find(s => s.id === selectedStreamId) || REALITY_DATA.streams[0];
 
@@ -19,7 +21,7 @@ export function StreamReality() {
             <section className="text-center space-y-4">
                 <div className="flex justify-center">
                     <div className="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2 border border-red-200 dark:border-red-800">
-                        <MapPin className="w-4 h-4" /> Tamil Nadu Edition
+                        <MapPin className="w-4 h-4" /> {t("validation.edition")}
                     </div>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-heading font-black text-foreground">
@@ -34,12 +36,12 @@ export function StreamReality() {
             <Card className="border-l-4 border-l-amber-500 bg-amber-50/50 dark:bg-amber-900/10">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
-                        <AlertTriangle className="w-5 h-5" /> Executive Briefing (Read First)
+                        <AlertTriangle className="w-5 h-5" /> {t("validation.briefing")}
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="grid md:grid-cols-2 gap-6">
                     <div>
-                        <h4 className="font-bold text-sm mb-2 text-red-600">🚨 HARD TRUTHS</h4>
+                        <h4 className="font-bold text-sm mb-2 text-red-600">🚨 {t("validation.hardTruths")}</h4>
                         <ul className="space-y-1">
                             {REALITY_DATA.intro.alerts.map((item, i) => (
                                 <li key={i} className="text-sm flex items-start gap-2">
@@ -50,7 +52,7 @@ export function StreamReality() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-bold text-sm mb-2 text-green-600">✅ IMMEDIATE ACTIONS</h4>
+                        <h4 className="font-bold text-sm mb-2 text-green-600">✅ {t("validation.immediateActions")}</h4>
                         <ul className="space-y-1">
                             {REALITY_DATA.intro.actions.map((item, i) => (
                                 <li key={i} className="text-sm flex items-start gap-2">
@@ -65,7 +67,7 @@ export function StreamReality() {
 
             {/* Stream Selector */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-4">
-                <span className="font-bold text-lg">Inspect Stream:</span>
+                <span className="font-bold text-lg">{t("validation.inspect")}</span>
                 <div className="flex flex-wrap justify-center gap-2">
                     {REALITY_DATA.streams.map(s => (
                         <Button
@@ -99,20 +101,21 @@ export function StreamReality() {
                     {/* Myth vs Reality */}
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="p-4 bg-red-50 dark:bg-red-900/10 rounded-lg border border-red-100 dark:border-red-900/30">
-                            <h4 className="font-bold text-red-700 text-sm mb-1">THE MYTH</h4>
+                            <h4 className="font-bold text-red-700 text-sm mb-1">{t("validation.myth")}</h4>
                             <p className="text-sm italic">"{selectedStream.myth}"</p>
                         </div>
                         <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-900/30">
-                            <h4 className="font-bold text-green-700 text-sm mb-1">THE TAMIL NADU REALITY</h4>
+                            <h4 className="font-bold text-green-700 text-sm mb-1">{t("validation.reality")}</h4>
                             <p className="text-sm font-medium">{selectedStream.reality}</p>
                         </div>
                     </div>
+
 
                     {/* Funnel & Gate */}
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="space-y-4">
                             <h3 className="font-bold flex items-center gap-2 border-b pb-2">
-                                <ShieldAlert className="w-5 h-5 text-amber-500" /> Entrance Gates (TN)
+                                <ShieldAlert className="w-5 h-5 text-amber-500" /> {t("validation.gates")}
                             </h3>
                             <div className="space-y-3">
                                 {selectedStream.gate.stats.map((stat, i) => (
@@ -130,7 +133,7 @@ export function StreamReality() {
                         {/* College Matrix */}
                         <div className="space-y-4">
                             <h3 className="font-bold flex items-center gap-2 border-b pb-2">
-                                <GraduationCap className="w-5 h-5 text-blue-500" /> College Matrix
+                                <GraduationCap className="w-5 h-5 text-blue-500" /> {t("validation.colleges")}
                             </h3>
                             <div className="border rounded-lg overflow-hidden">
                                 <table className="w-full text-xs text-left">
@@ -166,7 +169,7 @@ export function StreamReality() {
                     <CardHeader className="pb-2">
                         <CardTitle className="text-lg font-bold flex items-center gap-2">
                             <Target className="w-5 h-5 text-primary" />
-                            {REALITY_DATA.backpack.title}
+                            {t("validation.backpack")}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="grid sm:grid-cols-2 gap-3 pt-2">
@@ -185,11 +188,11 @@ export function StreamReality() {
                 {/* Parent Scripts */}
                 <Card>
                     <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-bold">Scripts</CardTitle>
+                        <CardTitle className="text-lg font-bold">{t("validation.scripts")}</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4 text-sm">
                         <div className="space-y-2">
-                            <h5 className="font-bold text-xs uppercase text-muted-foreground">For Dad/Mom</h5>
+                            <h5 className="font-bold text-xs uppercase text-muted-foreground">{t("validation.forParents")}</h5>
                             <p className="italic text-muted-foreground border-l-2 pl-2">
                                 "{REALITY_DATA.scripts.parent[0]}"
                             </p>
@@ -198,15 +201,15 @@ export function StreamReality() {
                             </p>
                         </div>
                         <Button variant="outline" size="sm" className="w-full">
-                            Copy Full Script
+                            {t("validation.copy")}
                         </Button>
                     </CardContent>
                 </Card>
             </div>
 
             <div className="text-center text-xs text-muted-foreground pt-4">
-                Verified Data Sources: TNEA 2025 Cutoffs, NIRF 2026, TN Health Dept Bulletins.
+                {t("validation.sources")}
             </div>
-        </div>
+        </div >
     );
 }

@@ -1,159 +1,237 @@
 export interface CareerBranch {
     id: string;
     title: string;
-    triggers: string[]; // Reasons why a student might pivot here
-    pathway: string[]; // Steps: UG -> PG -> Job
-    yearsToMaster: string; // e.g. "2", "5" (Time from UG graduation)
-    costEstimate: string; // ₹ Lakhs
-    salaryPotential: string; // ₹ Lakhs PA (Entry level)
+    title_ta?: string;
+    triggers: string[];
+    triggers_ta?: string[];
+    pathway: string[];
+    pathway_ta?: string[];
+    yearsToMaster: string;
+    costEstimate: string;
+    costEstimate_ta?: string;
+    salaryPotential: string;
+    salaryPotential_ta?: string;
     jobBreadth: "Very Narrow" | "Narrow" | "Medium" | "High";
     aiRisk: "Low" | "Medium" | "High";
     description: string;
+    description_ta?: string;
 }
 
 export const CAREER_BRANCHES: CareerBranch[] = [
     {
         id: "tnpsc_govt",
         title: "TN Govt Service (TNPSC)",
+        title_ta: "தமிழ்நாடு அரசுப் பணி (TNPSC)",
         triggers: ["Seeking job security", "Wants power/respect", "Good at memorization"],
+        triggers_ta: ["வேலை பாதுகாப்பு தேடுபவர்", "அதிகாரம்/மரியாதை வேண்டும்", "நினைவாற்றல் திறன் அதிகம்"],
         pathway: ["Any Degree", "TNPSC Group 1 / 2 Exam", "Training at Bhavanisagar"],
+        pathway_ta: ["ஏதேனும் ஒரு பட்டம்", "TNPSC குரூப் 1 / 2 தேர்வு", "பவானிசாகர் பயிற்சி"],
         yearsToMaster: "1-2",
         costEstimate: "₹10k - 50k (Coaching)",
+        costEstimate_ta: "₹10ஆ - 50ஆ (பயிற்சி)",
         salaryPotential: "₹4 - 10 LPA",
+        salaryPotential_ta: "₹4 - 10 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Low",
         description: "The ultimate 'Safe' path in Tamil Nadu. Deputy Collector, DSP, or Municipal Commissioner roles.",
+        description_ta: "தமிழ்நாட்டின் மிகச்சிறந்த 'பாதுகாப்பான' பாதை. துணை கலெக்டர், டிஎஸ்பி அல்லது நகராட்சி ஆணையர் பதவிகள்."
     },
     {
         id: "banking_psu",
         title: "Banking & PSU Exams",
+        title_ta: "வங்கி & பொதுத்துறை தேர்வுகள்",
         triggers: ["Fast calculation skills", "Wants central govt perks", "Risk averse"],
+        triggers_ta: ["வேகமாக கணக்கிடும் திறன்", "மத்திய அரசு சலுகைகள்", "ரிஸ்க் எடுக்க விரும்பாதவர்"],
         pathway: ["Any Degree", "IBPS / SBI PO Exam", "Interview"],
+        pathway_ta: ["ஏதேனும் ஒரு பட்டம்", "IBPS / SBI PO தேர்வு", "நேர்முகத் தேர்வு"],
         yearsToMaster: "1",
         costEstimate: "₹15k - 40k (Coaching)",
+        costEstimate_ta: "₹15ஆ - 40ஆ (பயிற்சி)",
         salaryPotential: "₹6 - 12 LPA",
+        salaryPotential_ta: "₹6 - 12 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Medium",
         description: "Faster than UPSC/TNPSC. Probationary Officers in SBI/Indian Bank earn remarkably well with low stress.",
+        description_ta: "UPSC/TNPSC-ஐ விட வேகமானது. SBI/இந்தியன் வங்கியில் அதிகாரி பணி - குறைந்த மன அழுத்தத்துடன் நல்ல சம்பளம்."
     },
     {
         id: "corporate_hr",
         title: "Corporate HR (Chennai)",
+        title_ta: "கார்ப்பரேட் HR (சென்னை)",
         triggers: ["People person", "Dislikes coding", "Good communicator"],
+        triggers_ta: ["மக்களுடன் பழகும் ஆர்வம்", "கோடிங் பிடிக்காது", "நல்ல தகவல் தொடர்பு திறன்"],
         pathway: ["UG Psychology/BBA", "MBA in HR (Madras Univ / XIME)"],
+        pathway_ta: ["UG உளவியல்/BBA", "MBA HR (சென்னை பல்கலலைக்கழகம் / XIME)"],
         yearsToMaster: "2",
         costEstimate: "₹4 - 10 Lakhs",
+        costEstimate_ta: "₹4 - 10 லட்சம்",
         salaryPotential: "₹5 - 9 LPA",
+        salaryPotential_ta: "₹5 - 9 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Medium",
         description: "Managing talent for SaaS companies (Zoho, Freshworks) or Manufacturing giants (Hyundai, TVS).",
+        description_ta: "SaaS நிறுவனங்கள் (Zoho, Freshworks) அல்லது உற்பத்தி ஜாம்பவான்களுக்கு (ஹூண்டாய், டிவிஎஸ்) திறமையாளர்களை நிர்வகித்தல்."
     },
     {
         id: "engineer_mba",
         title: "The Engineer -> MBA Pivot",
+        title_ta: "பொறியாளர் -> MBA மாற்றம்",
         triggers: ["Tech redundancy", "Wants Leadership", "Salary stagnation"],
+        triggers_ta: ["தொழில்நுட்ப தேக்கம்", "தலைமைத்துவ ஆசை", "சம்பள உயர்வு இல்லை"],
         pathway: ["B.E./B.Tech", "CAT/XAT/TANCET", "MBA in Ops/Marketing"],
+        pathway_ta: ["B.E./B.Tech", "CAT/XAT/TANCET", "MBA (Ops/Marketing)"],
         yearsToMaster: "2 (Post Work Ex)",
         costEstimate: "₹10 - 25 Lakhs (IIM/GLIM)",
+        costEstimate_ta: "₹10 - 25 லட்சம் (IIM/GLIM)",
         salaryPotential: "₹12 - 25 LPA",
+        salaryPotential_ta: "₹12 - 25 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Low",
         description: "The classic move. Tech skills + Business Strategy = High Value. Target IIM Trichy of Great Lakes Chennai.",
+        description_ta: "கிளாசிக் நகர்வு. தொழில்நுட்பத் திறன் + வணிக உத்தி = அதிக மதிப்பு. IIM திருச்சி அல்லது கிரேட் லேக்ஸ் சென்னை இலக்கு."
     },
     {
         id: "tnpsc_arts",
         title: "Arts -> Public Service (TNPSC)",
+        title_ta: "கலை -> அரசுப் பணி (TNPSC)",
         triggers: ["Wants Power/Impact", "Good at History/Tamil", "Job Security"],
+        triggers_ta: ["அதிகாரம்/தாக்கம் வேண்டும்", "வரலாறு/தமிழ் ஆர்வம்", "வேலை பாதுகாப்பு"],
         pathway: ["Any Degree (B.E/B.A/B.Sc)", "TNPSC Group 1 / UPSC", "Training"],
+        pathway_ta: ["ஏதேனும் பட்டம்", "TNPSC குரூப் 1 / UPSC", "பயிற்சி"],
         yearsToMaster: "2-3 (Prep)",
         costEstimate: "₹20k - 1 Lakh (Coaching)",
+        costEstimate_ta: "₹20ஆ - 1 லட்சம் (பயிற்சி)",
         salaryPotential: "₹50k - 1L/Month (Govt Scale)",
+        salaryPotential_ta: "₹50ஆ - 1ல/மாதம்",
         jobBreadth: "Medium",
         aiRisk: "Low",
         description: "A BA is not 'useless'. It is the best foundation for Civil Services. District Collector > Software Engineer.",
+        description_ta: "BA என்பது 'பயனற்றது' அல்ல. சிவில் சர்வீசஸுக்கு இது சிறந்த அடித்தளம். மாவட்ட ஆட்சியர் > மென்பொருள் பொறியாளர்."
     },
     {
         id: "upsc_pivot",
         title: "UPSC Civil Services",
+        title_ta: "UPSC சிவில் சர்வீசஸ்",
         triggers: ["Nation Building", "Supreme Authority", "Academic Excellence"],
+        triggers_ta: ["தேசத்தைக் கட்டமைத்தல்", "உச்ச அதிகாரம்", "கல்விச் சிறப்பு"],
         pathway: ["Any Degree", "UPSC CSE Exam (Prelims/Mains/Interview)"],
+        pathway_ta: ["ஏதேனும் பட்டம்", "UPSC CSE தேர்வு", "நேர்முகம்"],
         yearsToMaster: "3-5 Years (Full time prep)",
         costEstimate: "₹1 - 3 Lakhs (Delhi/Chennai Coaching)",
+        costEstimate_ta: "₹1 - 3 லட்சம் (டெல்லி/சென்னை பயிற்சி)",
         salaryPotential: "₹56k (Entry) - Power: Infinite",
+        salaryPotential_ta: "₹56ஆ (தொடக்க) - அதிகாரம்: அளப்பரியது",
         jobBreadth: "Medium",
         aiRisk: "Low",
         description: "High Risk / High Reward. Success rate < 0.2%. Have a Plan B (TNPSC/SSC) ready.",
+        description_ta: "அதிக ரிஸ்க் / அதிக வெகுமதி. வெற்றி விகிதம் < 0.2%. மாற்றுத் திட்டம் (TNPSC/SSC) தயாராக இருக்கட்டும்."
     },
     {
         id: "data_analytics",
         title: "Data Analytics",
+        title_ta: "தரவு பகுப்பாய்வு (Data Analytics)",
         triggers: ["Maths background", "Logical thinker", "Wants IT salary without app dev"],
+        triggers_ta: ["கணிதப் பின்னணி", "தருக்கச் சிந்தனையாளர்", "ஆப் டெவெலப்மெண்ட் இல்லா IT சம்பளம்"],
         pathway: ["B.Sc Stats / B.E", "Google Data Cert / Python Course"],
+        pathway_ta: ["B.Sc Stats / B.E", "Google Data சான்றிதழ் / Python"],
         yearsToMaster: "0.5",
         costEstimate: "₹20k - 1 Lakh",
+        costEstimate_ta: "₹20ஆ - 1 லட்சம்",
         salaryPotential: "₹6 - 12 LPA",
+        salaryPotential_ta: "₹6 - 12 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Medium",
         description: "Chennai is a data hub. Banks and Healthcare firms need analysts. AI won't replace you; it will simply be your calculator.",
+        description_ta: "சென்னை ஒரு தரவு மையம். வங்கிகள் மற்றும் சுகாதார நிறுவனங்களுக்கு ஆய்வாளர்கள் தேவை. AI உங்களை மாற்றாது; அது உங்கள் கால்குலேட்டராக இருக்கும்."
     },
     {
         id: "digital_marketing",
         title: "Digital Marketing",
+        title_ta: "டிஜிட்டல் மார்க்கெட்டிங்",
         triggers: ["Creative", "Social media savvy", "Entrepreneurial"],
+        triggers_ta: ["படைப்பாற்றல்", "சமூக ஊடக அறிவு", "தொழில்முனைவோர் ஆர்வம்"],
         pathway: ["Any UG", "Agency Internship", "Portfolio"],
+        pathway_ta: ["ஏதேனும் UG", "ஏஜென்சி இன்டர்ன்ஷிப்", "போர்ட்ஃபோலியோ"],
         yearsToMaster: "0.5",
         costEstimate: "₹0 - 50k",
+        costEstimate_ta: "₹0 - 50ஆ",
         salaryPotential: "₹3 - 7 LPA",
+        salaryPotential_ta: "₹3 - 7 லட்சம்/ஆண்டு",
         jobBreadth: "Medium",
         aiRisk: "High",
         description: "Managing brands for TN businesses. High demand in retail, cinema, and startups.",
+        description_ta: "தமிழக வணிகங்களுக்கான பிராண்டுகளை நிர்வகித்தல். சில்லறை வர்த்தகம், சினிமா மற்றும் ஸ்டார்ட்அப்களில் அதிக தேவை."
     },
     {
         id: "clinical_psych",
         title: "Clinical Psychology",
+        title_ta: "மருத்துவ உளவியல்",
         triggers: ["Deep empathy", "Willing to study long", "Hospital interest"],
+        triggers_ta: ["ஆழ்ந்த பச்சாதாபம்", "நீண்ட காலம் படிக்கும் ஆர்வம்", "மருத்துவமனை விருப்பம்"],
         pathway: ["B.Sc Psych", "M.Sc Psych", "M.Phil (IMH Kilpauk)"],
+        pathway_ta: ["B.Sc உளவியல்", "M.Sc உளவியல்", "M.Phil (IMH கீழ்ப்பாக்கம்)"],
         yearsToMaster: "4",
         costEstimate: "₹5 - 10 Lakhs",
+        costEstimate_ta: "₹5 - 10 லட்சம்",
         salaryPotential: "₹4 - 8 LPA",
+        salaryPotential_ta: "₹4 - 8 லட்சம்/ஆண்டு",
         jobBreadth: "Narrow",
         aiRisk: "Low",
         description: "The classic path. Diagnosing disorders. Very varied quality of colleges in TN. Only M.Phil (RCI) counts.",
+        description_ta: "கிளாசிக் பாதை. குறைபாடுகளைக் கண்டறிதல். தமிழ்நாட்டில் கல்லூரிகளின் தரம் மாறுபடும். M.Phil (RCI) மட்டுமே கணக்கில் எடுத்துக்கொள்ளப்படும்."
     },
     {
         id: "teaching_prof",
         title: "School / College Teaching",
+        title_ta: "பள்ளி / கல்லூரி ஆசிரியர்",
         triggers: ["Loves explaining", "Wants work-life balance", "Subject expert"],
+        triggers_ta: ["விளக்க விரும்புபவர்", "வேலை-வாழ்க்கை சமநிலை", "பாட நிபுணர்"],
         pathway: ["UG+B.Ed (School)", "PG+NET/SET (College)"],
+        pathway_ta: ["UG+B.Ed (பள்ளி)", "PG+NET/SET (கல்லூரி)"],
         yearsToMaster: "2",
         costEstimate: "₹1 - 3 Lakhs",
+        costEstimate_ta: "₹1 - 3 லட்சம்",
         salaryPotential: "₹3 - 7 LPA",
+        salaryPotential_ta: "₹3 - 7 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Low",
         description: "TN has the highest Gross Enrolment Ratio. Teachers are always needed, though private pay is low initially.",
+        description_ta: "தமிழகம் அதிக உயர்கல்விச் சேர்க்கை விகிதத்தைக் கொண்டுள்ளது. ஆசிரியர்கள் எப்போதும் தேவை, ஆனால் தனியாரில் ஆரம்ப சம்பளம் குறைவு."
     },
     {
         id: "entrepreneurship",
         title: "Family Business / Startup",
+        title_ta: "குடும்பத் தொழில் / ஸ்டார்ட்அப்",
         triggers: ["Risk taker", "Has capital/idea", "Hates 9-5"],
+        triggers_ta: ["ரிஸ்க் எடுப்பவர்", "மூலதனம்/யோசனை உள்ளவர்", "9-5 வேலை பிடிக்காதவர்"],
         pathway: ["Any Degree", "Incubation (IITM Research Park)", "Launch"],
+        pathway_ta: ["ஏதேனும் பட்டம்", "இன்குபேஷன் (IITM பார்க்)", "தொடக்கம்"],
         yearsToMaster: "Indefinite",
         costEstimate: "Variable",
+        costEstimate_ta: "மாறுபடும்",
         salaryPotential: "Variable",
+        salaryPotential_ta: "மாறுபடும்",
         jobBreadth: "Very Narrow",
         aiRisk: "Medium",
         description: "TN is the 'SaaS Capital'. Great ecosystem for building products, or modernizing family MSMEs.",
+        description_ta: "தமிழகம் 'SaaS தலைநகரம்'. தயாரிப்புகளை உருவாக்க அல்லது குடும்பத் தொழிலை நவீனமயமாக்கச் சிறந்த சூழல்."
     },
     {
         id: "hybrid_tech",
         title: "Hybrid / Tech-Integrated",
+        title_ta: "ஹைப்ரிட் / தொழில்நுட்ப ஒருங்கிணைப்பு",
         triggers: ["Loves two subjects", "Bio + Math", "Finance + Code"],
+        triggers_ta: ["இரண்டு பாடங்களில் ஆர்வம்", "உயிரியல் + கணிதம்", "நிதி + கோடிங்"],
         pathway: ["Bio-Informatics", "FinTech (B.Com + Python)", "Legal Tech"],
+        pathway_ta: ["பயோ-இன்ஃபர்மேட்டிக்ஸ்", "ஃபின்லெக் (B.Com + Python)", "சட்ட தொழில்நுட்பம்"],
         yearsToMaster: "1",
         costEstimate: "₹50k - 2 Lakhs",
+        costEstimate_ta: "₹50ஆ - 2 லட்சம்",
         salaryPotential: "₹8 - 15 LPA",
+        salaryPotential_ta: "₹8 - 15 லட்சம்/ஆண்டு",
         jobBreadth: "High",
         aiRisk: "Low",
         description: "The sweet spot. Don't just be a Coder. Be a 'Coder who knows Biology' or a 'Lawyer who knows AI'.",
+        description_ta: "சிறந்த இடம். வெறும் கோடராக இருக்காதீர்கள். 'உயிரியல் தெரிந்த கோடர்' அல்லது 'AI தெரிந்த வக்கீலாக' இருங்கள்."
     }
 ];

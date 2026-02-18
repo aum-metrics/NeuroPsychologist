@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { CheckCircle2, AlertTriangle, BookOpen, GraduationCap, TrendingUp, DollarSign, Brain, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/context/LanguageContext";
 
 interface StreamDetailProps {
     stream: Stream | null;
@@ -18,6 +19,7 @@ interface StreamDetailProps {
 
 export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
     const [activeTab, setActiveTab] = useState<"overview" | "reality" | "fees" | "future">("overview");
+    const { language, t } = useLanguage();
 
     if (!stream) return null;
 
@@ -32,6 +34,15 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
     const avgFee = (parseLakhs(stream.studyCosts.govt) + parseLakhs(stream.studyCosts.private)) / 2; // Very rough
     const avgSal = parseLakhs(stream.avgSalary);
 
+    const title = language === 'ta' ? stream.title_ta || stream.title : stream.title;
+    const overview = language === 'ta' ? stream.overview_ta || stream.overview : stream.overview;
+    const scope = language === 'ta' ? stream.scope_ta || stream.scope : stream.scope;
+    const keySkills = language === 'ta' && stream.keySkills_ta ? stream.keySkills_ta : stream.keySkills;
+    const academicRequirements = language === 'ta' ? stream.academicRequirements_ta || stream.academicRequirements : stream.academicRequirements;
+    const downsides = language === 'ta' ? stream.downsides_ta || stream.downsides : stream.downsides;
+    const tnValidation = language === 'ta' ? stream.tnValidation_ta || stream.tnValidation : stream.tnValidation;
+    const futureOutlook = language === 'ta' ? stream.futureOutlook_ta || stream.futureOutlook : stream.futureOutlook;
+
     return (
         <Dialog open={open} onOpenChange={onClose}>
             {/* Added bg-white dark:bg-zinc-950 and z-[200] explicitly to fix transparency issue */}
@@ -41,13 +52,13 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                 <div className="p-6 pb-4 border-b bg-muted/20 backdrop-blur-md">
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-between items-start">
-                            <DialogTitle className="text-3xl font-bold font-heading text-primary">{stream.title}</DialogTitle>
-                            <Badge variant="outline" className="bg-background/50 backdrop-blur">TN Edition</Badge>
+                            <DialogTitle className="text-3xl font-bold font-heading text-primary">{title}</DialogTitle>
+                            <Badge variant="outline" className="bg-background/50 backdrop-blur">{t("appDesc")}</Badge>
                         </div>
-                        <p className="text-muted-foreground line-clamp-1">{stream.overview}</p>
+                        <p className="text-muted-foreground line-clamp-1">{overview}</p>
                         <div className="flex items-center gap-2 mt-1">
                             <Badge variant="secondary" className="text-[10px] bg-emerald-50 text-emerald-700 border-emerald-200">
-                                Last Updated in NOV 2025
+                                {t("streamDetail.lastUpdated")}
                             </Badge>
                         </div>
                     </div>
@@ -55,10 +66,10 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                     {/* Custom Tabs */}
                     <div className="flex flex-wrap gap-2 mt-6">
                         {[
-                            { id: "overview", label: "Overview", icon: BookOpen },
-                            { id: "reality", label: "Reality Check", icon: Lock },
-                            { id: "fees", label: "Fees & ROI", icon: DollarSign },
-                            { id: "future", label: "2036 Future", icon: TrendingUp },
+                            { id: "overview", label: t("streamDetail.tabs.overview"), icon: BookOpen },
+                            { id: "reality", label: t("streamDetail.tabs.reality"), icon: Lock },
+                            { id: "fees", label: t("streamDetail.tabs.fees"), icon: DollarSign },
+                            { id: "future", label: t("streamDetail.tabs.future"), icon: TrendingUp },
                         ].map((tab) => (
                             <Button
                                 key={tab.id}
@@ -89,18 +100,18 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                 <div className="space-y-6">
                                     <div className="bg-blue-50 dark:bg-blue-900/10 p-5 rounded-2xl border border-blue-100 dark:border-blue-800">
                                         <h4 className="font-bold flex items-center gap-2 text-blue-800 dark:text-blue-300 mb-2">
-                                            <GraduationCap className="w-5 h-5" /> Industry Demand
+                                            <GraduationCap className="w-5 h-5" /> {t("streamDetail.demand")}
                                         </h4>
-                                        <p className="text-sm font-medium leading-relaxed text-blue-900 dark:text-blue-100">{stream.scope}</p>
+                                        <p className="text-sm font-medium leading-relaxed text-blue-900 dark:text-blue-100">{scope}</p>
                                     </div>
 
                                     <div>
                                         <h4 className="font-bold mb-3 flex items-center gap-2">
                                             <CheckCircle2 className="w-5 h-5 text-green-600" />
-                                            Required DNA (Skills)
+                                            {t("streamDetail.dna")}
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
-                                            {stream.keySkills.map((skill, idx) => (
+                                            {keySkills.map((skill, idx) => (
                                                 <Badge key={idx} variant="secondary" className="px-3 py-1.5 text-sm">
                                                     {skill}
                                                 </Badge>
@@ -111,9 +122,9 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                     <div>
                                         <h4 className="font-bold mb-3 flex items-center gap-2">
                                             <BookOpen className="w-5 h-5 text-purple-600" />
-                                            Academic Path
+                                            {t("streamDetail.path")}
                                         </h4>
-                                        <p className="text-sm bg-background border p-3 rounded-lg text-muted-foreground">{stream.academicRequirements}</p>
+                                        <p className="text-sm bg-background border p-3 rounded-lg text-muted-foreground">{academicRequirements}</p>
                                     </div>
                                 </div>
                             )}
@@ -123,15 +134,15 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                 <div className="space-y-6">
                                     <div className="bg-red-50 dark:bg-red-900/10 p-5 rounded-2xl border border-red-100 dark:border-red-800">
                                         <h4 className="font-bold flex items-center gap-2 text-red-800 dark:text-red-300 mb-2">
-                                            <AlertTriangle className="w-5 h-5" /> The Brutal Truth (Downsides)
+                                            <AlertTriangle className="w-5 h-5" /> {t("streamDetail.brutal")}
                                         </h4>
-                                        <p className="text-sm font-medium leading-relaxed text-red-900 dark:text-red-100">{stream.downsides}</p>
+                                        <p className="text-sm font-medium leading-relaxed text-red-900 dark:text-red-100">{downsides}</p>
                                     </div>
 
                                     <div className="bg-background border p-5 rounded-2xl space-y-3">
-                                        <h4 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">TN Market Facts (Validated)</h4>
+                                        <h4 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">{t("streamDetail.facts")}</h4>
                                         <p className="text-sm leading-relaxed border-l-4 border-primary pl-4 py-1 italic">
-                                            "{stream.tnValidation}"
+                                            "{tnValidation}"
                                         </p>
                                     </div>
                                 </div>
@@ -142,23 +153,23 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                 <div className="space-y-6">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="p-4 rounded-xl border bg-background text-center">
-                                            <div className="text-xs font-bold text-muted-foreground uppercase mb-1">Govt Seat Cost</div>
+                                            <div className="text-xs font-bold text-muted-foreground uppercase mb-1">{t("streamDetail.govtCost")}</div>
                                             <div className="text-xl font-black text-green-600">{stream.studyCosts.govt}</div>
-                                            <div className="text-xs text-muted-foreground mt-1">Per Year</div>
+                                            <div className="text-xs text-muted-foreground mt-1">{t("streamDetail.perYear")}</div>
                                         </div>
                                         <div className="p-4 rounded-xl border bg-background text-center">
-                                            <div className="text-xs font-bold text-muted-foreground uppercase mb-1">Private Mgmt Cost</div>
+                                            <div className="text-xs font-bold text-muted-foreground uppercase mb-1">{t("streamDetail.privCost")}</div>
                                             <div className="text-xl font-black text-red-600">{stream.studyCosts.private}</div>
-                                            <div className="text-xs text-muted-foreground mt-1">Per Year</div>
+                                            <div className="text-xs text-muted-foreground mt-1">{t("streamDetail.perYear")}</div>
                                         </div>
                                     </div>
 
                                     <div className="bg-orange-50 dark:bg-orange-900/10 p-5 rounded-2xl border border-orange-100">
                                         <h4 className="font-bold flex items-center gap-2 text-orange-800 dark:text-orange-300 mb-2">
-                                            <DollarSign className="w-5 h-5" /> Salary Reality (Freshers)
+                                            <DollarSign className="w-5 h-5" /> {t("streamDetail.salary")}
                                         </h4>
                                         <div className="text-2xl font-black font-heading text-foreground mb-1">{stream.avgSalary}</div>
-                                        <p className="text-xs text-muted-foreground">Based on 2024 hiring trends in Chennai/Bangalore.</p>
+                                        <p className="text-xs text-muted-foreground">{t("streamDetail.salaryNote")}</p>
                                     </div>
 
                                     <p className="text-xs text-center text-muted-foreground">
@@ -171,18 +182,18 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                             {activeTab === "future" && (
                                 <div className="space-y-6">
                                     <div className="bg-purple-50 dark:bg-purple-900/10 p-6 rounded-2xl border border-purple-100 dark:border-purple-800">
-                                        <Badge className="bg-purple-600 mb-3 hover:bg-purple-700">2036 Vantage Point</Badge>
+                                        <Badge className="bg-purple-600 mb-3 hover:bg-purple-700">{t("streamDetail.vantage")}</Badge>
                                         <h4 className="font-bold text-xl text-purple-900 dark:text-purple-100 mb-3">
-                                            What will this job look like in 10 years?
+                                            {t("streamDetail.outlook")}
                                         </h4>
                                         <p className="text-base leading-relaxed text-foreground/90 font-medium">
-                                            "{stream.futureOutlook}"
+                                            "{futureOutlook}"
                                         </p>
                                     </div>
 
                                     <div className="space-y-2">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm font-bold text-muted-foreground">AI Resilience Score</span>
+                                            <span className="text-sm font-bold text-muted-foreground">{t("streamDetail.resilience")}</span>
                                             <span className="text-sm font-bold text-purple-600">{stream.resilienceScore}/10</span>
                                         </div>
                                         <div className="h-3 w-full bg-gray-100 rounded-full overflow-hidden">
@@ -193,7 +204,7 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                                             />
                                         </div>
                                         <p className="text-xs text-muted-foreground text-right w-full">
-                                            {stream.resilienceScore > 8 ? "Safe from AI Disruption" : stream.resilienceScore > 4 ? "Will be AI-Assisted" : "High Risk of Automation"}
+                                            {stream.resilienceScore > 8 ? t("streamDetail.safe") : stream.resilienceScore > 4 ? t("streamDetail.assisted") : t("streamDetail.risk")}
                                         </p>
                                     </div>
                                 </div>
