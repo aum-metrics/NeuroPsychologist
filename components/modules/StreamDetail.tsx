@@ -47,7 +47,7 @@ export function StreamDetail({ stream, open, onClose }: StreamDetailProps) {
                         <p className="text-muted-foreground line-clamp-1">{stream.overview}</p>
                         <div className="flex items-center gap-2 mt-1">
                             <Badge variant="secondary" className="text-[10px] bg-emerald-50 text-emerald-700 border-emerald-200">
-                                Verified: Feb 2026
+                                Last Updated in NOV 2025
                             </Badge>
                         </div>
                     </div>
